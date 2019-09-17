@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="WQjxHW" name="jackel" projectType="guiapp" jucerVersion="5.4.4">
-  <MAINGROUP id="NjqYl8" name="jackel">
-    <GROUP id="{1BB833D2-DAF6-66A2-D9E0-D321BF0BCA59}" name="Source">
-      <FILE id="Y9ySUK" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-      <FILE id="wRj41D" name="MainComponent.cpp" compile="1" resource="0"
-            file="Source/MainComponent.cpp"/>
-      <FILE id="TYa9iH" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4">
+  <MAINGROUP id="cmmOOt" name="jackel">
+    <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
+      <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
+            file="Source/InterfaceDefines.h"/>
+    </GROUP>
+    <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
+      <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
+      <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
+      <FILE id="GhlPP7" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
+      <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
+      <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
+      <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+      <FILE id="DybRsn" name="TopPanel.cpp" compile="1" resource="0" file="Source/TopPanel.cpp"/>
+      <FILE id="d36G6w" name="TopPanel.h" compile="0" resource="0" file="Source/TopPanel.h"/>
+    </GROUP>
+    <GROUP id="{86BDA4BF-1DD3-1187-D4D7-FED01ACE11E9}" name="Source">
+      <FILE id="q4kofV" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="O0D0XJ" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="Mpvq8O" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="CSczrB" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -19,7 +36,9 @@
         <MODULEPATH id="juce_audio_basics" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_audio_formats" path="../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_audio_processors" path="../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_core" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_cryptography" path="../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_data_structures" path="../Applications/JUCE/modules"/>
@@ -35,7 +54,10 @@
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -48,5 +70,5 @@
   <LIVE_SETTINGS>
     <OSX/>
   </LIVE_SETTINGS>
-  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
 </JUCERPROJECT>

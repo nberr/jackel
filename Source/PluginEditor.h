@@ -3,33 +3,33 @@
 
     This file was auto-generated!
 
+    It contains the basic framework code for a JUCE plugin editor.
+
   ==============================================================================
 */
 
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "PluginProcessor.h"
 
 //==============================================================================
-/*
-    This component lives inside our window, and this is where you should put all
-    your controls and content.
+/**
 */
-class MainComponent   : public Component
+class JackelAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    //==============================================================================
-    MainComponent();
-    ~MainComponent();
+    JackelAudioProcessorEditor (JackelAudioProcessor&);
+    ~JackelAudioProcessorEditor();
 
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
 
 private:
-    //==============================================================================
-    // Your private member variables go here...
+    // This reference is provided as a quick way for your editor to
+    // access the processor object that created it.
+    JackelAudioProcessor& processor;
 
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessorEditor)
 };
