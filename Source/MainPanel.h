@@ -9,3 +9,21 @@
 */
 
 #pragma once
+
+#include "PanelBase.h"
+
+#include "TopPanel.h"
+#include "BottomPanel.h"
+
+class MainPanel
+:   public PanelBase
+{
+public:
+    MainPanel(JackelAudioProcessor* inProcessor);
+    ~MainPanel();
+    
+private:
+    std::unique_ptr<TopPanel> mTopPanel;
+    std::unique_ptr<BottomPanel> mBottomPanel;
+    
+};

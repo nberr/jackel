@@ -9,3 +9,21 @@
 */
 
 #include "PanelBase.h"
+
+PanelBase::PanelBase(JackelAudioProcessor* inProcessor)
+{
+    mProcessor = inProcessor;
+}
+
+PanelBase::~PanelBase()
+{
+    
+}
+
+void PanelBase::paint(Graphics& g) {
+    g.setColour(Colours::white);
+    g.fillAll();
+    
+    g.setColour(Colours::black);
+    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
+}

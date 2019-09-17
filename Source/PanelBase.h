@@ -9,3 +9,21 @@
 */
 
 #pragma once
+
+#include "JuceHeader.h"
+
+#include "InterfaceDefines.h"
+#include "PluginProcessor.h"
+
+class PanelBase
+:   public Component
+{
+public:
+    PanelBase(JackelAudioProcessor* inProcessor);
+    ~PanelBase();
+    
+    void paint(Graphics& g) override;
+    
+private:
+    JackelAudioProcessor* mProcessor;
+};

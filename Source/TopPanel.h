@@ -9,3 +9,18 @@
 */
 
 #pragma once
+
+#include "PanelBase.h"
+
+class TopPanel
+:   public PanelBase
+{
+public:
+    TopPanel(JackelAudioProcessor* inProcessor);
+    ~TopPanel();
+    
+    void paint(Graphics& g) override;
+    
+private:
+    
+};

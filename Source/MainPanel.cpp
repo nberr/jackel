@@ -9,3 +9,22 @@
 */
 
 #include "MainPanel.h"
+
+MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
+:   PanelBase(inProcessor)
+{
+    setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+    
+    mTopPanel = std::make_unique<TopPanel>(inProcessor);
+    mTopPanel->setTopLeftPosition(0, 0);
+    addAndMakeVisible(*mTopPanel);
+    
+    mBottomPanel = std::make_unique<BottomPanel>(inProcessor);
+    mBottomPanel->setTopLeftPosition((TOP_PANEL_WIDTH / 2) - (BOTTOM_PANEL_WIDTH / 2), TOP_PANEL_HEIGHT);
+    addAndMakeVisible(*mBottomPanel);
+}
+
+MainPanel::~MainPanel()
+{
+    
+}
