@@ -12,9 +12,10 @@
 
 #include "PanelBase.h"
 
+#include "MidiController.h"
+
 class TopPanel
-:   public PanelBase,
-    public MidiKeyboardStateListener
+:   public PanelBase
 {
 public:
     TopPanel(JackelAudioProcessor* inProcessor);
@@ -22,14 +23,6 @@ public:
     
     void paint(Graphics& g) override;
     
-    virtual void handleNoteOn (MidiKeyboardState* source,
-                               int midiChannel, int midiNoteNumber, float velocity) override;
-    
-    virtual void handleNoteOff (MidiKeyboardState* source,
-                                int midiChannel, int midiNoteNumber, float velocity) override;
-    
 private:
-    MidiKeyboardState mMidiKbState;
-    MidiKeyboardComponent mMidiKbComponent;
-    
+    std::unique_ptr<MidiController> mMidiController;
 };

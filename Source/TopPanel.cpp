@@ -11,34 +11,20 @@
 #include "TopPanel.h"
 
 TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
-:   PanelBase(inProcessor),
-    mMidiKbComponent(mMidiKbState, MidiKeyboardComponent::Orientation::horizontalKeyboard)
+:   PanelBase(inProcessor)
 {
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
     
-    mMidiKbComponent.setBounds(1, TOP_MENU_HEIGHT, PIANO_WIDTH - 2, PIANO_HEIGHT);
-    addAndMakeVisible(mMidiKbComponent);
-    mMidiKbState.addListener (this);
+    mMidiController = std::make_unique<MidiController>();
+    addAndMakeVisible(mMidiController->getMidiKeyboardComponent());
 }
 
 TopPanel::~TopPanel()
 {
-    mMidiKbState.removeListener(this);
+    
 }
 
 void TopPanel::paint(Graphics& g)
 {
     PanelBase::paint(g);
-}
-
-void TopPanel::handleNoteOn (MidiKeyboardState* source,
-                           int midiChannel, int midiNoteNumber, float velocity)
-{
-    
-}
-
-void TopPanel::handleNoteOff (MidiKeyboardState* source,
-                              int midiChannel, int midiNoteNumber, float velocity)
-{
-    
 }

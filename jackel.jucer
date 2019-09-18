@@ -2,6 +2,16 @@
 
 <JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4">
   <MAINGROUP id="cmmOOt" name="jackel">
+    <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Control">
+      <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
+            file="Source/MidiController.cpp"/>
+      <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
+            file="Source/MidiController.h"/>
+      <FILE id="PDCVOY" name="MidiControllerComboBox.cpp" compile="1" resource="0"
+            file="Source/MidiControllerComboBox.cpp"/>
+      <FILE id="i1hh75" name="MidiControllerComboBox.h" compile="0" resource="0"
+            file="Source/MidiControllerComboBox.h"/>
+    </GROUP>
     <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
       <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
             file="Source/InterfaceDefines.h"/>
