@@ -10,13 +10,26 @@
 
 #pragma once
 
+#include "JuceHeader.h"
+
 class MidiControllerComboBox
+:   public ComboBox,
+    public MidiInputCallback
 {
 public:
     MidiControllerComboBox();
     ~MidiControllerComboBox();
     
-private:
+    void setMidiInput (int index);
     
+    virtual void handleIncomingMidiMessage (MidiInput* source,
+                                            const MidiMessage& message) override;
+    
+private:
+    AudioDeviceManager deviceManager;
+    ComboBox midiInputList;
+    Label midiInputListLabel;
+    int lastInputIndex;
+    bool isAddingFromMidiInput = false;
     
 };

@@ -13,6 +13,7 @@
 #include "PanelBase.h"
 
 #include "MidiController.h"
+#include "MidiControllerComboBox.h"
 
 class TopPanel
 :   public PanelBase
@@ -25,4 +26,5 @@ public:
     
 private:
     std::unique_ptr<MidiController> mMidiController;
+    std::unique_ptr<MidiControllerComboBox> mMidiControllerComboBox;
 };

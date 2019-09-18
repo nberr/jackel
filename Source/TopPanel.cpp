@@ -17,6 +17,10 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
     
     mMidiController = std::make_unique<MidiController>();
     addAndMakeVisible(mMidiController->getMidiKeyboardComponent());
+    
+    mMidiControllerComboBox = std::make_unique<MidiControllerComboBox>();
+    mMidiControllerComboBox->setBounds(((TOP_PANEL_WIDTH * 0.2) / 2) + 20, 1, BOTTOM_PANEL_WIDTH - 40, 35);
+    addAndMakeVisible(*mMidiControllerComboBox);
 }
 
 TopPanel::~TopPanel()
