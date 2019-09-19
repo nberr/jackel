@@ -14,11 +14,10 @@ MidiControllerComboBox::MidiControllerComboBox()
 {
     lastInputIndex = 0;
     
-    addAndMakeVisible (midiInputList);
-    midiInputList.setTextWhenNoChoicesAvailable ("No MIDI Inputs Enabled");
+    this->setTextWhenNoChoicesAvailable ("No MIDI Inputs Enabled");
     auto midiInputs = MidiInput::getDevices();
-    midiInputList.addItemList (midiInputs, 1);
-    midiInputList.onChange = [this] { setMidiInput (midiInputList.getSelectedItemIndex()); };
+    this->addItemList (midiInputs, 1);
+    this->onChange = [this] { setMidiInput (this->getSelectedItemIndex()); };
     
     // find the first enabled device and use that by default
     for (auto midiInput : midiInputs)
@@ -31,7 +30,7 @@ MidiControllerComboBox::MidiControllerComboBox()
     }
     
     // if no enabled devices were found just use the first one in the list
-    if (midiInputList.getSelectedId() == 0)
+    if (this->getSelectedId() == 0)
         setMidiInput (0);
 }
 
@@ -52,7 +51,7 @@ void MidiControllerComboBox::setMidiInput (int index)
         deviceManager.setMidiInputEnabled (newInput, true);
     
     deviceManager.addMidiInputCallback (newInput, this);
-    midiInputList.setSelectedId (index + 1, dontSendNotification);
+    this->setSelectedId (index + 1, dontSendNotification);
     
     lastInputIndex = index;
 }

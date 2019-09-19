@@ -27,7 +27,6 @@ public:
     
 private:
     AudioDeviceManager deviceManager;
-    ComboBox midiInputList;
     Label midiInputListLabel;
     int lastInputIndex;
     bool isAddingFromMidiInput = false;
