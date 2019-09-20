@@ -24,6 +24,6 @@ public:
     
 private:
     std::unique_ptr<TopPanel> mTopPanel;
-    std::unique_ptr<BottomPanel> mBottomPanel;
+    // std::unique_ptr<BottomPanel> mBottomPanel;
     
 };

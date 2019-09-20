@@ -13,14 +13,29 @@
 TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
     
     mMidiController = std::make_unique<MidiController>();
     addAndMakeVisible(mMidiController->getMidiKeyboardComponent());
     
+    mMidiCOntrollerLabel.setText("Midi Input", dontSendNotification);
+    mMidiCOntrollerLabel.setFont (Font (20.0f, Font::bold));
+    mMidiCOntrollerLabel.setColour(Label::textColourId, Colours::black);
+    mMidiCOntrollerLabel.setBounds(185, 80, TONAL_CENTER_LABEL_WIDTH, TONAL_CENTER_LABEL_HEIGHT);
+    addAndMakeVisible(mMidiCOntrollerLabel);
+    
     mMidiControllerComboBox = std::make_unique<MidiControllerComboBox>();
-    mMidiControllerComboBox->setBounds(((TOP_PANEL_WIDTH * 0.2) / 2) + 20, 1, BOTTOM_PANEL_WIDTH - 40, 35);
+    mMidiControllerComboBox->setBounds(285, 80, MIDI_COMBO_BOX_WIDTH, MIDI_COMBO_BOX_HEIGHT);
     addAndMakeVisible(*mMidiControllerComboBox);
+    
+    mTonalCenterLabel.setText("Tonal Center", dontSendNotification);
+    mTonalCenterLabel.setFont (Font (20.0f, Font::bold));
+    mTonalCenterLabel.setColour(Label::textColourId, Colours::black);
+    mTonalCenterLabel.setBounds(30, 80, TONAL_CENTER_LABEL_WIDTH, TONAL_CENTER_LABEL_HEIGHT);
+    addAndMakeVisible(mTonalCenterLabel);
+    
+    mTonalCenterComboBox.setBounds(130, 80, TONAL_CENTER_CB_WIDTH, TONAL_CENTER_CB_HEIGHT);
+    addAndMakeVisible(mTonalCenterComboBox);
 }
 
 TopPanel::~TopPanel()
@@ -31,4 +46,7 @@ TopPanel::~TopPanel()
 void TopPanel::paint(Graphics& g)
 {
     PanelBase::paint(g);
+    
+    g.drawRect(20, 80, 135, TONAL_CENTER_LABEL_HEIGHT);
+    g.drawRect(180, 80, TONAL_CENTER_LABEL_WIDTH + MIDI_COMBO_BOX_WIDTH, TONAL_CENTER_LABEL_HEIGHT);
 }
