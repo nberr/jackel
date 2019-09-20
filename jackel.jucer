@@ -15,6 +15,7 @@
     <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
       <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
             file="Source/InterfaceDefines.h"/>
+      <FILE id="sXChoe" name="Theory.h" compile="0" resource="0" file="Source/Theory.h"/>
     </GROUP>
     <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
       <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>

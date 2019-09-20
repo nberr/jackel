@@ -10,6 +10,8 @@
 
 #include "TopPanel.h"
 
+#include "Theory.h"
+
 TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
@@ -35,6 +37,13 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
     addAndMakeVisible(mTonalCenterLabel);
     
     mTonalCenterComboBox.setBounds(130, 80, TONAL_CENTER_CB_WIDTH, TONAL_CENTER_CB_HEIGHT);
+    
+    for (int i = 0; i < 12; i++)
+    {
+        mTonalCenterComboBox.addItem(Centers[i], i+1);
+    }
+    
+    
     addAndMakeVisible(mTonalCenterComboBox);
 }
 
