@@ -12,6 +12,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+#include "MidiProcessor.h"
+
 //==============================================================================
 /**
 */
@@ -54,8 +56,16 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    AudioProcessorValueTreeState parameters;
 
 private:
     //==============================================================================
+    AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+    
+    
+    std::unique_ptr<MidiProcessor> mMidiProcessor;
+    
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessor)
 };

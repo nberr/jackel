@@ -2,6 +2,11 @@
 
 <JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4">
   <MAINGROUP id="cmmOOt" name="jackel">
+    <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="Process">
+      <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
+            file="Source/MidiProcessor.cpp"/>
+      <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
+    </GROUP>
     <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Control">
       <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
             file="Source/MidiController.cpp"/>
@@ -15,7 +20,6 @@
     <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
       <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
             file="Source/InterfaceDefines.h"/>
-      <FILE id="sXChoe" name="Theory.h" compile="0" resource="0" file="Source/Theory.h"/>
     </GROUP>
     <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
       <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>

@@ -10,7 +10,7 @@
 
 #include "TopPanel.h"
 
-#include "Theory.h"
+#include "MidiProcessor.h"
 
 TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
