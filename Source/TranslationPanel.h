@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    BottomPanel.h
-    Created: 17 Sep 2019 10:53:37am
+    TranslationPanel.h
+    Created: 24 Sep 2019 11:24:09am
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,19 +12,16 @@
 
 #include "PanelBase.h"
 
-#include "TonalCenterPanel.h"
-#include "TranslationPanel.h"
-
-class BottomPanel
+class TranslationPanel
 :   public PanelBase
 {
 public:
-    BottomPanel(JackelAudioProcessor* inProcessor);
-    ~BottomPanel();
+    TranslationPanel(JackelAudioProcessor* inProcessor);
+    ~TranslationPanel();
     
     void paint(Graphics& g) override;
     
 private:
-    std::unique_ptr<TonalCenterPanel> mTCPanel;
-    std::unique_ptr<TranslationPanel> mTranslationPanel;
+    
+    
 };

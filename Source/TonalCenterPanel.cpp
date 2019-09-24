@@ -1,29 +1,28 @@
 /*
   ==============================================================================
 
-    TopPanel.cpp
-    Created: 17 Sep 2019 10:53:31am
+    TonalCenterPanel.cpp
+    Created: 24 Sep 2019 11:23:57am
     Author:  Nicholas Berriochoa
 
   ==============================================================================
 */
 
-#include "TopPanel.h"
+#include "TonalCenterPanel.h"
 
-#include "MidiProcessor.h"
-
-TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
+TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    setSize(TC_BOX_WIDTH, TC_BOX_HEIGHT);
 }
 
-TopPanel::~TopPanel()
+TonalCenterPanel::~TonalCenterPanel()
 {
     
 }
 
-void TopPanel::paint(Graphics& g)
+void TonalCenterPanel::paint(Graphics& g)
 {
     PanelBase::paint(g);
 }
+

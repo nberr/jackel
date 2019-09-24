@@ -25,10 +25,5 @@ public:
     void paint(Graphics& g) override;
     
 private:
-    std::unique_ptr<MidiController> mMidiController;
-    std::unique_ptr<MidiControllerComboBox> mMidiControllerComboBox;
-    Label mMidiCOntrollerLabel;
     
-    ComboBox mTonalCenterComboBox;
-    Label mTonalCenterLabel;
 };

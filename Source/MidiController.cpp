@@ -15,7 +15,7 @@
 MidiController::MidiController()
 :   mMidiKbComponent(mMidiKbState, MidiKeyboardComponent::Orientation::horizontalKeyboard)
 {
-    mMidiKbComponent.setBounds(20, TOP_MENU_HEIGHT + 130, PIANO_WIDTH - 40, PIANO_HEIGHT);
+    mMidiKbComponent.setBounds(20, 100 + 130,  - 40, MIDI_KB_HEIGHT);
     mMidiKbState.addListener (this);
 }
 

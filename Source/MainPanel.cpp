@@ -19,9 +19,9 @@ MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
     mTopPanel->setTopLeftPosition(0, 0);
     addAndMakeVisible(*mTopPanel);
     
-    // mBottomPanel = std::make_unique<BottomPanel>(inProcessor);
-    // mBottomPanel->setTopLeftPosition((TOP_PANEL_WIDTH * 0.2) / 2, TOP_PANEL_HEIGHT);
-    // addAndMakeVisible(*mBottomPanel);
+    mBottomPanel = std::make_unique<BottomPanel>(inProcessor);
+    mBottomPanel->setTopLeftPosition((TOP_PANEL_WIDTH * 0.2) / 2, TOP_PANEL_HEIGHT);
+    addAndMakeVisible(*mBottomPanel);
 }
 
 MainPanel::~MainPanel()

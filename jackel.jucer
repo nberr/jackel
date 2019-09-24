@@ -28,8 +28,16 @@
       <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
       <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
       <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+      <FILE id="VQl3Pi" name="TonalCenterPanel.cpp" compile="1" resource="0"
+            file="Source/TonalCenterPanel.cpp"/>
+      <FILE id="SiZGcN" name="TonalCenterPanel.h" compile="0" resource="0"
+            file="Source/TonalCenterPanel.h"/>
       <FILE id="DybRsn" name="TopPanel.cpp" compile="1" resource="0" file="Source/TopPanel.cpp"/>
       <FILE id="d36G6w" name="TopPanel.h" compile="0" resource="0" file="Source/TopPanel.h"/>
+      <FILE id="iSqfDi" name="TranslationPanel.cpp" compile="1" resource="0"
+            file="Source/TranslationPanel.cpp"/>
+      <FILE id="EYcd6O" name="TranslationPanel.h" compile="0" resource="0"
+            file="Source/TranslationPanel.h"/>
     </GROUP>
     <GROUP id="{86BDA4BF-1DD3-1187-D4D7-FED01ACE11E9}" name="Source">
       <FILE id="q4kofV" name="PluginProcessor.cpp" compile="1" resource="0"
