@@ -12,10 +12,18 @@
 
 #include "MidiProcessor.h"
 
-TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
+TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
 :   PanelBase(inProcessor)
 {
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    
+    mMidiInputDevs = inMidiInputDevs;
+    addAndMakeVisible(mMidiInputDevs);
+    
+    mMidiInputLabel.setBounds(20, 25, MIDI_DEV_LB_WIDTH, MIDI_DEV_LB_HEIGHT);
+    mMidiInputLabel.setText("Midi device:", dontSendNotification);
+    mMidiInputLabel.setColour(Label::textColourId, Colours::black);
+    addAndMakeVisible(mMidiInputLabel);
 }
 
 TopPanel::~TopPanel()

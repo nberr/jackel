@@ -19,7 +19,7 @@ class BottomPanel
 :   public PanelBase
 {
 public:
-    BottomPanel(JackelAudioProcessor* inProcessor);
+    BottomPanel(JackelAudioProcessor* inProcessor, MidiKeyboardComponent* inKeyboardComponent);
     ~BottomPanel();
     
     void paint(Graphics& g) override;
@@ -27,4 +27,6 @@ public:
 private:
     std::unique_ptr<TonalCenterPanel> mTCPanel;
     std::unique_ptr<TranslationPanel> mTranslationPanel;
+    
+    MidiKeyboardComponent* mKeyboardComponent;
 };

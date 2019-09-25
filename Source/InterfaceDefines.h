@@ -24,11 +24,11 @@
 #define TOP_PANEL_HEIGHT 100
 
 // Midi device combobox selector + label
-#define MIDI_DEV_CB_WIDTH 100
-#define MIDI_DEV_CB_HEIGHT 35
+#define MIDI_DEV_CB_WIDTH (((TOP_PANEL_WIDTH - (TOP_PANEL_WIDTH * 0.3)) * 0.85) - 50)
+#define MIDI_DEV_CB_HEIGHT 50
 
-#define MIDI_DEV_LB_WIDTH 40
-#define MIDI_DEV_LB_HEIGHT 45
+#define MIDI_DEV_LB_WIDTH ((TOP_PANEL_WIDTH - (TOP_PANEL_WIDTH * 0.3)) * 0.15)
+#define MIDI_DEV_LB_HEIGHT 50
 
 // Mode Label, display box, buttons
 #define MODE_LABEL_WIDTH 10

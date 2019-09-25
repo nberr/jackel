@@ -12,18 +12,16 @@
 
 #include "PanelBase.h"
 
-#include "MidiController.h"
-#include "MidiControllerComboBox.h"
-
 class TopPanel
 :   public PanelBase
 {
 public:
-    TopPanel(JackelAudioProcessor* inProcessor);
+    TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs);
     ~TopPanel();
     
     void paint(Graphics& g) override;
     
 private:
-    
+    ComboBox* mMidiInputDevs;
+    Label mMidiInputLabel;
 };

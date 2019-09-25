@@ -14,6 +14,7 @@
 
 #include "TopPanel.h"
 #include "BottomPanel.h"
+#include "MidiController.h"
 
 class MainPanel
 :   public PanelBase
@@ -25,5 +26,7 @@ public:
 private:
     std::unique_ptr<TopPanel> mTopPanel;
     std::unique_ptr<BottomPanel> mBottomPanel;
+    
+    std::unique_ptr<MidiController> mMidiController;
     
 };

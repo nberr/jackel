@@ -13,22 +13,27 @@
 #include "JuceHeader.h"
 
 class MidiController
-:   public MidiKeyboardStateListener
+:   private MidiKeyboardStateListener,
+    private MidiInputCallback
 {
 public:
     MidiController();
     ~MidiController();
     
-    MidiKeyboardComponent* getMidiKeyboardComponent();
+    virtual void handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity) override;
+    virtual void handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity) override;
+    virtual void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message) override;
     
-    virtual void handleNoteOn (MidiKeyboardState* source,
-                               int midiChannel, int midiNoteNumber, float velocity) override;
-    
-    virtual void handleNoteOff (MidiKeyboardState* source,
-                                int midiChannel, int midiNoteNumber, float velocity) override;
+    MidiKeyboardComponent* getKeyboardComponent();
+    ComboBox* getComboBox();
+    void setMidiInput (int index);
     
 private:
-    MidiKeyboardState mMidiKbState;
-    MidiKeyboardComponent mMidiKbComponent;
+    std::unique_ptr<MidiKeyboardComponent> mKeyboardComponent;
+    MidiKeyboardState mKeyboardState;
     
+    AudioDeviceManager deviceManager;
+    std::unique_ptr<ComboBox> mMidiInputDevs;
+    int lastInputIndex = 0;
+    bool isAddingFromMidiInput = false;
 };
