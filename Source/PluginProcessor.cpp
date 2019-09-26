@@ -149,8 +149,6 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
     int time;
     MidiMessage m;
     
-    
-    
     for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
     {
         processedMidi = mMidiProcessor->process(m, time);

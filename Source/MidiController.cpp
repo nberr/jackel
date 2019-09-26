@@ -58,12 +58,13 @@ void MidiController::handleNoteOn (MidiKeyboardState* source, int midiChannel, i
 
 void MidiController::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity)
 {
-    
+
 }
 
 void MidiController::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
 {
-    
+    const ScopedValueSetter<bool> scopedInputFlag (isAddingFromMidiInput, true);
+    mKeyboardState.processNextMidiEvent (message);
 }
 
 MidiKeyboardComponent* MidiController::getKeyboardComponent()
