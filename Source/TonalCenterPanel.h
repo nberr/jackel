@@ -22,6 +22,10 @@ public:
     void paint(Graphics& g) override;
     
 private:
+    std::unique_ptr<ArrowButton> mUpButton;
+    std::unique_ptr<ArrowButton> mDownButton;
     
+    std::unique_ptr<Label> mBoxLabel;
+    std::unique_ptr<Label> mDisplayLabel;
     
 };

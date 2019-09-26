@@ -14,21 +14,6 @@
 
 #include "JuceHeader.h"
 
-static String Centers[12] = {
-    "C",
-    "Db",
-    "D",
-    "Eb",
-    "E",
-    "F",
-    "Gb",
-    "G",
-    "Ab",
-    "A",
-    "Bb",
-    "B"
-};
-
 class MidiProcessor
 {
 public:
