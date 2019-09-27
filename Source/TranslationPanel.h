@@ -22,6 +22,10 @@ public:
     void paint(Graphics& g) override;
     
 private:
+    std::unique_ptr<Label> mOGLabel;
+    std::unique_ptr<Label> mOGDisplayLabel;
     
+    std::unique_ptr<Label> mNegLabel;
+    std::unique_ptr<Label> mNegDisplayLabel;
     
 };
