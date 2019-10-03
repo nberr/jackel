@@ -11,6 +11,7 @@
 #include "MidiController.h"
 
 #include "InterfaceDefines.h"
+#include "MidiFunctions.h"
 
 MidiController::MidiController()
 {
@@ -58,13 +59,45 @@ void MidiController::handleNoteOn (MidiKeyboardState* source, int midiChannel, i
 
 void MidiController::handleNoteOff (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity)
 {
-
+    
 }
 
+/*
+ *  This function handles the visual aspect of the midi messages
+ */
 void MidiController::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
 {
-    const ScopedValueSetter<bool> scopedInputFlag (isAddingFromMidiInput, true);
-    mKeyboardState.processNextMidiEvent (message);
+    // use the same algorithm in MidiProcessor to hanle notes on/off
+    // MidiMessage m;
+    // mKeyboardState.processNextMidiEvent (message);
+    
+    // TODO: grab this value from the parameter
+    const int tonalCenter = 0;
+    
+    // convert the original note to it's negative value
+    const int oldNote = message.getNoteNumber();
+    const int newNote = getNegative(oldNote, tonalCenter);
+    
+    if (message.isNoteOn())
+    {
+        // check if the generated note is within range. edges of the piano
+        // may be cut off and nothing happens
+        if (mValidMidi.contains(newNote)){
+            // add the new midi note. keep the original channel and velocity
+            // add the new midi note
+            MidiMessage m = MidiMessage::noteOn (message.getChannel(), newNote, message.getVelocity());
+            m.setTimeStamp (Time::getMillisecondCounterHiRes() * 0.001);
+            
+            mKeyboardState.processNextMidiEvent(m);
+        }
+    }
+    else if (message.isNoteOff())
+    {
+        MidiMessage m = MidiMessage::noteOff (message.getChannel(), newNote, message.getVelocity());
+        m.setTimeStamp (Time::getMillisecondCounterHiRes() * 0.001);
+        
+        mKeyboardState.processNextMidiEvent(m);
+    }
 }
 
 MidiKeyboardComponent* MidiController::getKeyboardComponent()

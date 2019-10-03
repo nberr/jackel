@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4">
+<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4"
+              pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel">
   <MAINGROUP id="cmmOOt" name="jackel">
     <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="Process">
       <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
@@ -18,6 +20,7 @@
             file="Source/InterfaceDefines.h"/>
       <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
             file="Source/JackelParameters.h"/>
+      <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
     </GROUP>
     <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
       <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>

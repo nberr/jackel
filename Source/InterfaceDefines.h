@@ -35,6 +35,7 @@
 #define MIDI_DEV_LB_HEIGHT 50
 
 // Mode Label, display box, buttons
+// TODO: implement this for v2
 #define MODE_LABEL_WIDTH 10
 #define MODE_LABEL_HEIGHT 10
 

@@ -10,30 +10,50 @@
 
 #include "MidiProcessor.h"
 
-MidiProcessor::MidiProcessor(AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+#include "MidiFunctions.h"
+
+MidiProcessor::MidiProcessor()
 {
-    
+    // set the range of valid midi notes
+    // start range is inclusive, end range is exclusive
+    mValidMidi.setStart(0);
+    mValidMidi.setEnd(128);
 }
 
 MidiProcessor::~MidiProcessor()
 {
-    
+
 }
 
-MidiBuffer MidiProcessor::process(MidiMessage m, int time)
+void MidiProcessor::process(MidiMessage message, int time, MidiBuffer* processedMidi)
 {
-    MidiBuffer processedMidi;
+    // TODO: grab this value from the parameter
+    const int tonalCenter = 0;
     
+    // convert the original note to it's negative value
+    const int oldNote = message.getNoteNumber();
+    const int newNote = getNegative(oldNote, tonalCenter);
     
-    
-    return processedMidi;
-}
-
-int MidiProcessor::get_negative(float center, int note)
-{
-    float polar = note - center;
-    int newNote = (center - polar < 0) ? ((int)(center - polar + 12)) % 12 :
-    ((int)(center - polar)) % 12;
-    
-    return newNote;
+    if (message.isNoteOn())
+    {
+        // check if the generated note is within range. edges of the piano
+        // may be cut off and nothing happens
+        if (mValidMidi.contains(newNote)){
+            // add the new midi note. keep the original channel and velocity
+            
+            
+            processedMidi->addEvent(MidiMessage::noteOn (message.getChannel(),
+                                                         newNote,
+                                                         message.getVelocity()),
+                                    time);
+        }
+    }
+    else if (message.isNoteOff())
+    {
+        processedMidi->addEvent(MidiMessage::noteOff(message.getChannel(),
+                                                     newNote,
+                                                     message.getVelocity()),
+                                time);
+        
+    }
 }

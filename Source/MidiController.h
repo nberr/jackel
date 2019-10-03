@@ -35,5 +35,6 @@ private:
     AudioDeviceManager deviceManager;
     std::unique_ptr<ComboBox> mMidiInputDevs;
     int lastInputIndex = 0;
-    bool isAddingFromMidiInput = false;
+    
+    Range<int> mValidMidi;
 };

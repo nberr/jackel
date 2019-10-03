@@ -10,21 +10,16 @@
 
 #pragma once
 
-#include <unordered_map>
-
 #include "JuceHeader.h"
 
 class MidiProcessor
 {
 public:
-    MidiProcessor(AudioBuffer<float>& buffer, MidiBuffer& midiMessages);
+    MidiProcessor();
     ~MidiProcessor();
     
-    MidiBuffer process(MidiMessage m, int time);
-    
-    int get_negative(float center, int note);
+    void process(MidiMessage message, int time, MidiBuffer* processedMidi);
     
 private:
-    std::unordered_map<int, int> mNoteMap;
-    
+    Range<int> mValidMidi;
 };

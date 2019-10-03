@@ -25,6 +25,7 @@ JackelAudioProcessor::JackelAudioProcessor()
 #endif
     parameters(*this, nullptr, "PARAMETERS", createParameterLayout())
 {
+    mMidiProcessor = std::make_unique<MidiProcessor>();
 }
 
 JackelAudioProcessor::~JackelAudioProcessor()
@@ -145,16 +146,16 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
     for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    MidiBuffer processedMidi;
+    std::unique_ptr<MidiBuffer> processedMidi = std::make_unique<MidiBuffer>();
     int time;
     MidiMessage m;
-    
-    for (MidiBuffer::Iterator i(midiMessages); i.getNextEvent(m, time);)
+ 
+    for (MidiBuffer::Iterator i (midiMessages); i.getNextEvent (m, time);)
     {
-        processedMidi = mMidiProcessor->process(m, time);
+        mMidiProcessor->process(m, time, &*processedMidi);
     }
     
-    midiMessages.swapWith(processedMidi);
+    midiMessages.swapWith(*processedMidi);
 }
 
 //==============================================================================
