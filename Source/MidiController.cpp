@@ -45,6 +45,9 @@ MidiController::MidiController()
     
     mMidiInputDevs->setSize(MIDI_DEV_CB_WIDTH, MIDI_DEV_CB_HEIGHT);
     mMidiInputDevs->setTopLeftPosition(MIDI_DEV_LB_WIDTH + 40, 25);
+    
+    mValidMidi.setStart(0);
+    mValidMidi.setEnd(128);
 }
 
 MidiController::~MidiController()
@@ -97,6 +100,10 @@ void MidiController::handleIncomingMidiMessage (MidiInput* source, const MidiMes
         m.setTimeStamp (Time::getMillisecondCounterHiRes() * 0.001);
         
         mKeyboardState.processNextMidiEvent(m);
+    }
+    else
+    {
+        mKeyboardState.processNextMidiEvent(message);
     }
 }
 
