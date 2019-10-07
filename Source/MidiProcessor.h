@@ -18,7 +18,7 @@ public:
     MidiProcessor();
     ~MidiProcessor();
     
-    void process(MidiMessage message, int time, MidiBuffer* processedMidi);
+    void process(MidiMessage message, int time, MidiBuffer* processedMidi, int tonalCenter);
     
 private:
     Range<int> mValidMidi;

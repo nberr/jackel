@@ -13,8 +13,10 @@
 #include "InterfaceDefines.h"
 #include "MidiFunctions.h"
 
-MidiController::MidiController()
+MidiController::MidiController(JackelAudioProcessor* inProcessor)
 {
+    mProcessor = inProcessor;
+    
     mKeyboardComponent = std::make_unique<MidiKeyboardComponent>(mKeyboardState, MidiKeyboardComponent::horizontalKeyboard);
     
     mKeyboardComponent->setSize(MIDI_KB_WIDTH, MIDI_KB_HEIGHT);
@@ -75,7 +77,7 @@ void MidiController::handleIncomingMidiMessage (MidiInput* source, const MidiMes
     // mKeyboardState.processNextMidiEvent (message);
     
     // TODO: grab this value from the parameter
-    const int tonalCenter = 0;
+    const int tonalCenter = *(mProcessor->parameters.getRawParameterValue("TonalCenter"));
     
     // convert the original note to it's negative value
     const int oldNote = message.getNoteNumber();

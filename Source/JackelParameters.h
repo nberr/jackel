@@ -17,7 +17,9 @@ enum JackelParameters
     JP_TotalNumParams
 };
 
-static const String TonalCenterLables[12] = {
+#define NUM_TONAL_CENTERS 12
+
+static const String TonalCenterLables[NUM_TONAL_CENTERS] = {
     "C",
     "Db",
     "D",

@@ -11,6 +11,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "JackelParameters.h"
+
 //==============================================================================
 JackelAudioProcessor::JackelAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -152,7 +154,7 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
  
     for (MidiBuffer::Iterator i (midiMessages); i.getNextEvent (m, time);)
     {
-        mMidiProcessor->process(m, time, &*processedMidi);
+        mMidiProcessor->process(m, time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"));
     }
     
     midiMessages.swapWith(*processedMidi);
@@ -185,16 +187,30 @@ void JackelAudioProcessor::setStateInformation (const void* data, int sizeInByte
 
 AudioProcessorValueTreeState::ParameterLayout JackelAudioProcessor::createParameterLayout()
 {
-    std::vector<std::unique_ptr<AudioParameterFloat>> params;
+    std::vector<std::unique_ptr<AudioParameterInt>> params;
     
+    
+    // init the tonal center parameter
+    // TODO: add in mode parameter later
+    params.push_back (std::make_unique<AudioParameterInt>(JPID[0],
+                                                          JPID[0],
+                                                          0,
+                                                          NUM_TONAL_CENTERS,
+                                                          JPDefaultValue[0],
+                                                          JPLabel[0]));
+    
+    // add this loop back when you have more params to initialize
     /*
-    for (int i = 0; i < kParameter_TotalNumParameters; i++)
+    for (int i = 0; i < JP_TotalNumParams; i++)
     {
-        params.push_back (std::make_unique<AudioParameterFloat>(KAPParameterID[i],
-                                                                KAPParameterLabel[i],
-                                                                NormalisableRange<float>(0.0f, 1.0f),
-                                                                KAPParameterDefaultValue[i]));
-    }*/
+        params.push_back (std::make_unique<AudioParameterInt>(JPID[i],
+                                                              JPID[i],
+                                                              0,
+                                                              12,
+                                                              JPDefaultValue[i],
+                                                              JPLabel[i]));
+    }
+    */
     
     return { params.begin(), params.end() };
 }

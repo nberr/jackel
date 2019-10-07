@@ -11,13 +11,14 @@
 #pragma once
 
 #include "JuceHeader.h"
+#include "PluginProcessor.h"
 
 class MidiController
 :   private MidiKeyboardStateListener,
     private MidiInputCallback
 {
 public:
-    MidiController();
+    MidiController(JackelAudioProcessor* inProcessor);
     ~MidiController();
     
     virtual void handleNoteOn (MidiKeyboardState* source, int midiChannel, int midiNoteNumber, float velocity) override;
@@ -29,6 +30,8 @@ public:
     void setMidiInput (int index);
     
 private:
+     JackelAudioProcessor* mProcessor;
+    
     std::unique_ptr<MidiKeyboardComponent> mKeyboardComponent;
     MidiKeyboardState mKeyboardState;
     

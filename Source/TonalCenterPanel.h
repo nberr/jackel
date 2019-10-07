@@ -11,6 +11,7 @@
 #pragma once
 
 #include "PanelBase.h"
+#include "JackelParameterSpinner.h"
 
 class TonalCenterPanel
 :   public PanelBase
@@ -27,5 +28,7 @@ private:
     
     std::unique_ptr<Label> mBoxLabel;
     std::unique_ptr<Label> mDisplayLabel;
+    
+    std::unique_ptr<JackelParameterSpinner> mSpinner;
     
 };

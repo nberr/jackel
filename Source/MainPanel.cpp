@@ -15,7 +15,7 @@ MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
 {
     setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
     
-    mMidiController = std::make_unique<MidiController>();
+    mMidiController = std::make_unique<MidiController>(inProcessor);
     
     mTopPanel = std::make_unique<TopPanel>(inProcessor, mMidiController->getComboBox());
     mTopPanel->setTopLeftPosition(0, 0);

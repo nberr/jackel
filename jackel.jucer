@@ -10,6 +10,10 @@
       <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
     </GROUP>
     <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Control">
+      <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
+            file="Source/JackelParameterSpinner.cpp"/>
+      <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
+            file="Source/JackelParameterSpinner.h"/>
       <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
             file="Source/MidiController.cpp"/>
       <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
