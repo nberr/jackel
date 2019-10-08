@@ -46,7 +46,7 @@ MidiController::MidiController(JackelAudioProcessor* inProcessor)
         setMidiInput (0);
     
     mMidiInputDevs->setSize(MIDI_DEV_CB_WIDTH, MIDI_DEV_CB_HEIGHT);
-    mMidiInputDevs->setTopLeftPosition(MIDI_DEV_LB_WIDTH + 40, 25);
+    mMidiInputDevs->setTopLeftPosition((TOP_PANEL_WIDTH / 2) - (MIDI_DEV_CB_WIDTH / 2), 25);
     
     mValidMidi.setStart(0);
     mValidMidi.setEnd(128);

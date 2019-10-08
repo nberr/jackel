@@ -16,15 +16,17 @@ BottomPanel::BottomPanel(JackelAudioProcessor* inProcessor, MidiKeyboardComponen
     setSize(BOTTOM_PANEL_WIDTH, BOTTOM_PANEL_HEIGHT);
     
     mTCPanel = std::make_unique<TonalCenterPanel>(inProcessor);
-    mTCPanel->setTopLeftPosition(20, 20);
+    mTCPanel->setTopLeftPosition((BOTTOM_PANEL_WIDTH / 2) - (TC_BOX_WIDTH / 2), 20);
     addAndMakeVisible(*mTCPanel);
     
+    /*
     mTranslationPanel = std::make_unique<TranslationPanel>(inProcessor);
     mTranslationPanel->setTopLeftPosition(20 + TC_BOX_WIDTH + 20, 20);
     addAndMakeVisible(*mTranslationPanel);
-    
+    */
     mKeyboardComponent = inKeyboardComponent;
     addAndMakeVisible(mKeyboardComponent);
+     
     
 }
 

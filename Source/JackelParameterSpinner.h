@@ -40,18 +40,6 @@ private:
     
     float* mTonalCenterParameter;
     
-    // does value wrap around to 0
-    bool wrap = true;
-    // buttons on left or right of text
-    int buttonLocation = 0;
-    
-    // for placement
-    int width;
-    int height;
-    int x;
-    int y;
-    int textWidth;
-    
     int index;
     int numItems;
     
