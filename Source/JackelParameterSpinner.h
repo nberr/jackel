@@ -14,7 +14,8 @@
 #include "PluginProcessor.h"
 
 class JackelParameterSpinner
-:   public Component
+:   public Component,
+    public Button::Listener
 {
 public:
     JackelParameterSpinner(AudioProcessorValueTreeState& stateToControl,
@@ -22,7 +23,7 @@ public:
                            const String& parameterLabel);
     ~JackelParameterSpinner();
     
-    int getIndex();
+    void buttonClicked (Button*) override;
     
     void paint(Graphics& g) override;
     
@@ -35,6 +36,9 @@ private:
     std::unique_ptr<ArrowButton> mButtonUp;
     std::unique_ptr<ArrowButton> mButtonDown;
     std::unique_ptr<Label> mParamDisplay;
+    std::unique_ptr<Label> mTitle;
+    
+    float* mTonalCenterParameter;
     
     // does value wrap around to 0
     bool wrap = true;

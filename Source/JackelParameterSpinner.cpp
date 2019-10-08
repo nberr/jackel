@@ -20,23 +20,23 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
                                                const String& parameterID,
                                                const String& parameterLabel)
 {
-    // TODO: grab value from parameter
+    mTonalCenterParameter = stateToControl.getRawParameterValue("TonalCenter");
+    
     index = (int)*stateToControl.getRawParameterValue(parameterID);
     // TODO: set this value with constructor
     numItems = NUM_TONAL_CENTERS;
     
     // TITLE
-    /*
-    mBoxLabel = std::make_unique<Label>();
-    mBoxLabel->setText("Tonal Center", dontSendNotification);
-    mBoxLabel->setColour(Label::textColourId, Colours::black);
-    mBoxLabel->setJustificationType(Justification::centred);
-    mBoxLabel->setBounds((TC_BOX_WIDTH / 2) - (TC_LABEL_WIDTH / 2),
+    mTitle = std::make_unique<Label>();
+    mTitle->setText("Tonal Center", dontSendNotification);
+    mTitle->setColour(Label::textColourId, Colours::black);
+    mTitle->setJustificationType(Justification::centred);
+    mTitle->setBounds((TC_BOX_WIDTH / 2) - (TC_LABEL_WIDTH / 2),
                          MEDIUM_BUFFER,
                          TC_LABEL_WIDTH,
                          TC_LABEL_HEIGHT);
-    addAndMakeVisible(*mBoxLabel);
-     */
+    addAndMakeVisible(*mTitle);
+     
     
     // TODO: let user set look and feel
     mButtonUp = std::make_unique<ArrowButton>("UpArrow", 0.75, Colours::black);
@@ -53,9 +53,8 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
                            TC_BUTTON_HEIGHT);
     addAndMakeVisible(*mButtonDown);
     
-    // TODO: set the param display from parameter
     mParamDisplay = std::make_unique<Label>();
-    mParamDisplay->setText("TEST", dontSendNotification);
+    mParamDisplay->setText(TonalCenterLables[((int)*stateToControl.getRawParameterValue("TonalCenter"))], dontSendNotification);
     mParamDisplay->setColour(Label::textColourId, Colours::black);
     mParamDisplay->setJustificationType(Justification::centred);
     mParamDisplay->setBounds(MEDIUM_BUFFER,
@@ -65,35 +64,15 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
     addAndMakeVisible(*mParamDisplay);
     
     
-
-    mButtonUp->onClick = [this] {
-        
-        // index is bound to (0, numItems)
-        index = (index + 1 >= numItems) ? 0 : index + 1;
-        
-        // update the parameter value
-        
-        
-        // update the label
-        mParamDisplay->setText(TonalCenterLables[index], dontSendNotification);
-    };
-    
-    mButtonDown->onClick = [this] {
-        index = (index - 1 < 0) ? numItems-1 : index - 1;
-        
-        // update the parameter value
-        
-        mParamDisplay->setText(TonalCenterLables[index], dontSendNotification);
-    };
-    
-    
+    mButtonUp->addListener(this);
+    mButtonDown->addListener(this);
     
     // attach the parameter to the buttons
     mAttachmentUp = std::make_unique<AudioProcessorValueTreeState::ButtonAttachment>(stateToControl,
-                                                                                     parameterID + "Up",
+                                                                                     parameterID,
                                                                                      *mButtonUp);
     mAttachmentDown = std::make_unique<AudioProcessorValueTreeState::ButtonAttachment>(stateToControl,
-                                                                                       parameterID + "Down",
+                                                                                       parameterID,
                                                                                        *mButtonDown);
     
     
@@ -104,9 +83,24 @@ JackelParameterSpinner::~JackelParameterSpinner()
     
 }
 
-int JackelParameterSpinner::getIndex()
+void JackelParameterSpinner::buttonClicked (Button* inButton)
 {
-    return index;
+    if (inButton == &*mButtonUp)
+    {
+        index = (index + 1 >= numItems) ? 0 : index + 1;
+        
+        *mTonalCenterParameter = index;
+        
+        mParamDisplay->setText(TonalCenterLables[index], dontSendNotification);
+    }
+    else if (inButton == &*mButtonDown)
+    {
+        index = (index - 1 < 0) ? numItems-1 : index - 1;
+            
+        *mTonalCenterParameter = index;
+        
+        mParamDisplay->setText(TonalCenterLables[index], dontSendNotification);
+    }
 }
 
 void JackelParameterSpinner::paint(Graphics& g)
