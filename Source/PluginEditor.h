@@ -14,6 +14,7 @@
 #include "PluginProcessor.h"
 
 #include "MainPanel.h"
+#include "JackelLookAndFeel.h"
 
 //==============================================================================
 /**
@@ -34,6 +35,7 @@ private:
     JackelAudioProcessor& processor;
     
     std::unique_ptr<MainPanel> mMainPanel;
+    std::unique_ptr<JackelLookAndFeel> mLookAndFeel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessorEditor)
 };

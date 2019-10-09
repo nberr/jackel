@@ -21,10 +21,16 @@ JackelAudioProcessorEditor::JackelAudioProcessorEditor (JackelAudioProcessor& p)
     
     mMainPanel = std::make_unique<MainPanel>(&processor);
     addAndMakeVisible(*mMainPanel);
+    
+    mLookAndFeel = std::make_unique<JackelLookAndFeel>();
+    setLookAndFeel(&*mLookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel(&*mLookAndFeel);
 }
 
 JackelAudioProcessorEditor::~JackelAudioProcessorEditor()
 {
+    setLookAndFeel(nullptr);
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
 }
 
 //==============================================================================

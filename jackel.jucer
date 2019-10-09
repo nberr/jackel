@@ -4,6 +4,7 @@
               pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel">
   <MAINGROUP id="cmmOOt" name="jackel">
+    <GROUP id="{12D60E69-9322-BCD5-7522-C342A85F740F}" name="Assets"/>
     <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="Process">
       <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
             file="Source/MidiProcessor.cpp"/>
@@ -22,6 +23,8 @@
     <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
       <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
             file="Source/InterfaceDefines.h"/>
+      <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
+            file="Source/JackelLookAndFeel.h"/>
       <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
             file="Source/JackelParameters.h"/>
       <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>

@@ -18,6 +18,12 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
     
     mMidiInputDevs = inMidiInputDevs;
+    mMidiInputDevs->setColour(ComboBox::backgroundColourId, JackelColour_Base3);
+    mMidiInputDevs->setColour(ComboBox::textColourId, JackelColour_Base1);
+    mMidiInputDevs->setColour(ComboBox::arrowColourId, JackelColour_Base1);
+    mMidiInputDevs->setColour(mMidiInputDevs->getRootMenu()->backgroundColourId, JackelColour_Base3);
+    mMidiInputDevs->setColour( mMidiInputDevs->getRootMenu()->textColourId, JackelColour_Base1);
+    
     addAndMakeVisible(mMidiInputDevs);
     
     /*

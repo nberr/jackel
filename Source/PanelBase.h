@@ -14,6 +14,7 @@
 
 #include "InterfaceDefines.h"
 #include "PluginProcessor.h"
+#include "JackelLookAndFeel.h"
 
 class PanelBase
 :   public Component

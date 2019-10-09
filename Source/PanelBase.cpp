@@ -21,9 +21,9 @@ PanelBase::~PanelBase()
 }
 
 void PanelBase::paint(Graphics& g) {
-    g.setColour(Colours::white);
+    g.setColour(JackelColour_Base2);
     g.fillAll();
     
-    g.setColour(Colours::black);
-    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
+    g.setColour(JackelColour_Base1);
+    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
 }

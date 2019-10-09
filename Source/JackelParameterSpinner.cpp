@@ -15,6 +15,7 @@
 
 #include "JackelParameters.h"
 #include "InterfaceDefines.h"
+#include "JackelLookAndFeel.h"
 
 JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& stateToControl,
                                                const String& parameterID,
@@ -39,14 +40,14 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
      
     
     // TODO: let user set look and feel
-    mButtonUp = std::make_unique<ArrowButton>("UpArrow", 0.75, Colours::black);
+    mButtonUp = std::make_unique<ArrowButton>("UpArrow", 0.75, JackelColour_Base1);
     mButtonUp->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                          TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                          TC_BUTTON_WIDTH,
                          TC_BUTTON_HEIGHT);
     addAndMakeVisible(*mButtonUp);
     
-    mButtonDown = std::make_unique<ArrowButton>("DownArrow", 0.25, Colours::black);
+    mButtonDown = std::make_unique<ArrowButton>("DownArrow", 0.25, JackelColour_Base1);
     mButtonDown->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                            TC_LABEL_HEIGHT + (3 * MEDIUM_BUFFER) + TC_BUTTON_DISPLAY_HEIGHT + SMALL_BUFFER,
                            TC_BUTTON_WIDTH,
@@ -105,5 +106,15 @@ void JackelParameterSpinner::buttonClicked (Button* inButton)
 
 void JackelParameterSpinner::paint(Graphics& g)
 {
+    g.setColour(JackelColour_Highlight);
+    g.fillRect(MEDIUM_BUFFER,
+               TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER),
+               TC_DISPLAY_WIDTH,
+               TC_DISPLAY_HEIGHT);
     
+    g.setColour(JackelColour_Base1);
+    g.drawRoundedRectangle(MEDIUM_BUFFER,
+                           TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER),
+                           TC_DISPLAY_WIDTH,
+                           TC_DISPLAY_HEIGHT, 4, 2);
 }
