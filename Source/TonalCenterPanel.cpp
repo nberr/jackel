@@ -28,10 +28,10 @@ TonalCenterPanel::~TonalCenterPanel()
 void TonalCenterPanel::paint(Graphics& g)
 {
     // PanelBase::paint(g);
-    g.setColour(JackelColour_Base4);
+    g.setColour(JackelColour_Lighter);
     g.fillAll();
     
-    g.setColour(JackelColour_Base1);
+    g.setColour(JackelColour_Darker);
     g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
 }
 

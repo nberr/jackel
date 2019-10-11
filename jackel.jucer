@@ -2,7 +2,8 @@
 
 <JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4"
               pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
-              companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel">
+              companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel"
+              pluginManufacturer="nberr" pluginName="jackel" pluginDesc="negative harmony midi generator">
   <MAINGROUP id="cmmOOt" name="jackel">
     <GROUP id="{12D60E69-9322-BCD5-7522-C342A85F740F}" name="Assets"/>
     <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="Process">

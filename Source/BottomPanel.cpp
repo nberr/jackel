@@ -38,10 +38,10 @@ BottomPanel::~BottomPanel()
 void BottomPanel::paint(Graphics& g)
 {
     //PanelBase::paint(g);
-    g.setColour(JackelColour_Base3);
+    g.setColour(JackelColour_Light);
     g.fillAll();
     
-    g.setColour(JackelColour_Base1);
+    g.setColour(JackelColour_Darker);
     g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
     
 }
