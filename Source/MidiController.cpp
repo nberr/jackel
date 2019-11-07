@@ -76,25 +76,30 @@ void MidiController::handleIncomingMidiMessage (MidiInput* source, const MidiMes
     // MidiMessage m;
     // mKeyboardState.processNextMidiEvent (message);
     
-    // TODO: grab this value from the parameter
     const int tonalCenter = *(mProcessor->parameters.getRawParameterValue("TonalCenter"));
+    const int octave = *(mProcessor->parameters.getRawParameterValue("Octave"));
     
     // convert the original note to it's negative value
     const int oldNote = message.getNoteNumber();
-    const int newNote = getNegative(oldNote, tonalCenter);
+    const int newNote = getNegative(oldNote, tonalCenter, octave);
+    
+    // check if the generated note is within range. edges of the piano
+    // may be cut off and nothing happens
+    if (!mValidMidi.contains(newNote))
+    {
+        return;
+    }
     
     if (message.isNoteOn())
     {
-        // check if the generated note is within range. edges of the piano
-        // may be cut off and nothing happens
-        if (mValidMidi.contains(newNote)){
+        
             // add the new midi note. keep the original channel and velocity
             // add the new midi note
             MidiMessage m = MidiMessage::noteOn (message.getChannel(), newNote, message.getVelocity());
             m.setTimeStamp (Time::getMillisecondCounterHiRes() * 0.001);
             
             mKeyboardState.processNextMidiEvent(m);
-        }
+        
     }
     else if (message.isNoteOff())
     {

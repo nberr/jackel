@@ -154,7 +154,8 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
  
     for (MidiBuffer::Iterator i (midiMessages); i.getNextEvent (m, time);)
     {
-        mMidiProcessor->process(m, time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"));
+        mMidiProcessor->process(m, time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"),
+                                                          (int)*parameters.getRawParameterValue("Octave"));
     }
     
     midiMessages.swapWith(*processedMidi);
@@ -206,6 +207,13 @@ AudioProcessorValueTreeState::ParameterLayout JackelAudioProcessor::createParame
                                                           NUM_TONAL_CENTERS,
                                                           JPDefaultValue[0],
                                                           JPLabel[0]));
+    
+    params.push_back (std::make_unique<AudioParameterInt>(JPID[1],
+                                                          JPID[1],
+                                                          -2,
+                                                          MAX_NUM_OCTAVES,
+                                                          JPDefaultValue[1],
+                                                          JPLabel[1]));
     
     // add this loop back when you have more params to initialize
     /*

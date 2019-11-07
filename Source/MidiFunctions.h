@@ -10,7 +10,7 @@
 
 #pragma once
 
-inline int getNegative(int note, float center)
+inline int getNegative(int note, float center, int octave)
 {
     /*
      *  Old version that did not take octave into account when translating
@@ -22,10 +22,11 @@ inline int getNegative(int note, float center)
     
     /*
      *  calculate the new note
-     *  60 is a constant value representing the absolute pivot point (in
-     *  this case the pivot is middle C. we use the constant 3.5 to
-     *  represent the number of half steps needed to rotate the root to the
-     *  fifth
+     *  octave is the value representing the absolute pivot point. we add two
+     *  to this value because of the difference between midi standard and theory
+     *  standard octave representation.
+     *  we use the constant 3.5 to represent the number of half steps needed
+     *  to rotate the root to the fifth
      */
-    return (2 * (60 + center + 3.5)) - note;;
+    return (2 * (((octave+2) * 12) + center + 3.5)) - note;
 }

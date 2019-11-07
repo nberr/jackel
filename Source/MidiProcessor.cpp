@@ -25,28 +25,31 @@ MidiProcessor::~MidiProcessor()
 
 }
 
-void MidiProcessor::process(MidiMessage message, int time, MidiBuffer* processedMidi, int tonalCenter)
+void MidiProcessor::process(MidiMessage message, int time, MidiBuffer* processedMidi, int tonalCenter, int octave)
 {
     // TODO: grab this value from the parameter
     // const int tonalCenter = 0;
     
     // convert the original note to it's negative value
     const int oldNote = message.getNoteNumber();
-    const int newNote = getNegative(oldNote, tonalCenter);
+    const int newNote = getNegative(oldNote, tonalCenter, octave);
+    
+    // check if the generated note is within range. edges of the piano
+    // may be cut off and nothing happens
+    if (!mValidMidi.contains(newNote))
+    {
+        return;
+    }
     
     if (message.isNoteOn())
     {
-        // check if the generated note is within range. edges of the piano
-        // may be cut off and nothing happens
-        if (mValidMidi.contains(newNote)){
-            // add the new midi note. keep the original channel and velocity
+        
             
             
             processedMidi->addEvent(MidiMessage::noteOn (message.getChannel(),
                                                          newNote,
                                                          message.getVelocity()),
                                     time);
-        }
     }
     else if (message.isNoteOff())
     {
