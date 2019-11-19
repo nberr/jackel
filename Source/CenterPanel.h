@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    TranslationPanel.h
-    Created: 24 Sep 2019 11:24:09am
+    CenterPanel.h
+    Created: 18 Nov 2019 7:28:24pm
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,12 +12,12 @@
 
 #include "PanelBase.h"
 
-class TranslationPanel
+class CenterPanel
 :   public PanelBase
 {
 public:
-    TranslationPanel(JackelAudioProcessor* inProcessor);
-    ~TranslationPanel();
+    CenterPanel(JackelAudioProcessor* inProcessor);
+    ~CenterPanel();
     
     void paint(Graphics& g) override;
     

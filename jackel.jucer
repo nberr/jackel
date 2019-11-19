@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.4"
+<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" jucerVersion="5.4.5"
               pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel"
               pluginManufacturer="nberr" pluginName="jackel" pluginDesc="negative harmony midi generator">
@@ -33,8 +33,19 @@
     <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
       <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
       <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
+      <FILE id="oqt2tn" name="CenterPanel.cpp" compile="1" resource="0" file="Source/CenterPanel.cpp"/>
+      <FILE id="PN3G7l" name="CenterPanel.h" compile="0" resource="0" file="Source/CenterPanel.h"/>
+      <FILE id="aWj2iZ" name="DeviceSelectorPanel.cpp" compile="1" resource="0"
+            file="Source/DeviceSelectorPanel.cpp"/>
+      <FILE id="naaadf" name="DeviceSelectorPanel.h" compile="0" resource="0"
+            file="Source/DeviceSelectorPanel.h"/>
+      <FILE id="eKQYGv" name="KeyboardPanel.cpp" compile="1" resource="0"
+            file="Source/KeyboardPanel.cpp"/>
+      <FILE id="ibRmni" name="KeyboardPanel.h" compile="0" resource="0" file="Source/KeyboardPanel.h"/>
       <FILE id="GhlPP7" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
       <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
+      <FILE id="OVIyPl" name="OctavePanel.cpp" compile="1" resource="0" file="Source/OctavePanel.cpp"/>
+      <FILE id="hCR80J" name="OctavePanel.h" compile="0" resource="0" file="Source/OctavePanel.h"/>
       <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
       <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
       <FILE id="VQl3Pi" name="TonalCenterPanel.cpp" compile="1" resource="0"

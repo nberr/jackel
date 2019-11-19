@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    TranslationPanel.h
-    Created: 24 Sep 2019 11:24:09am
+    DeviceSelectorPanel.h
+    Created: 18 Nov 2019 7:35:31pm
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,15 +12,14 @@
 
 #include "PanelBase.h"
 
-class TranslationPanel
+class DeviceSelectorPanel
 :   public PanelBase
 {
 public:
-    TranslationPanel(JackelAudioProcessor* inProcessor);
-    ~TranslationPanel();
+    DeviceSelectorPanel(JackelAudioProcessor* inProcessor);
+    ~DeviceSelectorPanel();
     
     void paint(Graphics& g) override;
-    
 private:
     
 };

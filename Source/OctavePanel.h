@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    TranslationPanel.h
-    Created: 24 Sep 2019 11:24:09am
+    OctavePanel.h
+    Created: 8 Nov 2019 11:15:20am
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,15 +12,14 @@
 
 #include "PanelBase.h"
 
-class TranslationPanel
+class OctavePanel
 :   public PanelBase
 {
 public:
-    TranslationPanel(JackelAudioProcessor* inProcessor);
-    ~TranslationPanel();
+    OctavePanel(JackelAudioProcessor* inProcessor);
+    ~OctavePanel();
     
     void paint(Graphics& g) override;
-    
 private:
     
 };
