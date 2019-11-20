@@ -32,36 +32,36 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
     mTitle->setText("Tonal Center", dontSendNotification);
     mTitle->setColour(Label::textColourId, Colours::black);
     mTitle->setJustificationType(Justification::centred);
-    mTitle->setBounds((TC_BOX_WIDTH / 2) - (TC_LABEL_WIDTH / 2),
+    /*mTitle->setBounds((TC_BOX_WIDTH / 2) - (TC_LABEL_WIDTH / 2),
                          MEDIUM_BUFFER,
                          TC_LABEL_WIDTH,
-                         TC_LABEL_HEIGHT);
+                         TC_LABEL_HEIGHT);*/
     addAndMakeVisible(*mTitle);
      
     
     // TODO: let user set look and feel
     mButtonUp = std::make_unique<ArrowButton>("UpArrow", 0.75, JackelColour_Darker);
-    mButtonUp->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
+    /*mButtonUp->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                          TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                          TC_BUTTON_WIDTH,
-                         TC_BUTTON_HEIGHT);
+                         TC_BUTTON_HEIGHT);*/
     addAndMakeVisible(*mButtonUp);
     
     mButtonDown = std::make_unique<ArrowButton>("DownArrow", 0.25, JackelColour_Darker);
-    mButtonDown->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
+    /*mButtonDown->setBounds(TC_DISPLAY_WIDTH + (2 * MEDIUM_BUFFER) + SMALL_BUFFER,
                            TC_LABEL_HEIGHT + (3 * MEDIUM_BUFFER) + TC_BUTTON_DISPLAY_HEIGHT + SMALL_BUFFER,
                            TC_BUTTON_WIDTH,
-                           TC_BUTTON_HEIGHT);
+                           TC_BUTTON_HEIGHT);*/
     addAndMakeVisible(*mButtonDown);
     
     mParamDisplay = std::make_unique<Label>();
     mParamDisplay->setText(TonalCenterLables[((int)*stateToControl.getRawParameterValue("TonalCenter"))], dontSendNotification);
     mParamDisplay->setColour(Label::textColourId, Colours::black);
     mParamDisplay->setJustificationType(Justification::centred);
-    mParamDisplay->setBounds(MEDIUM_BUFFER,
+    /*mParamDisplay->setBounds(MEDIUM_BUFFER,
                              TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER),
                              TC_DISPLAY_WIDTH,
-                             TC_DISPLAY_HEIGHT);
+                             TC_DISPLAY_HEIGHT);*/
     addAndMakeVisible(*mParamDisplay);
     
     
@@ -107,7 +107,7 @@ void JackelParameterSpinner::buttonClicked (Button* inButton)
 void JackelParameterSpinner::paint(Graphics& g)
 {
     g.setColour(JackelColour_HighlightBg);
-    g.fillRect(MEDIUM_BUFFER,
+    /*g.fillRect(MEDIUM_BUFFER,
                TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER),
                TC_DISPLAY_WIDTH,
                TC_DISPLAY_HEIGHT);
@@ -116,5 +116,5 @@ void JackelParameterSpinner::paint(Graphics& g)
     g.drawRoundedRectangle(MEDIUM_BUFFER,
                            TC_LABEL_HEIGHT + (2 * MEDIUM_BUFFER),
                            TC_DISPLAY_WIDTH,
-                           TC_DISPLAY_HEIGHT, 4, 2);
+                           TC_DISPLAY_HEIGHT, 4, 2);*/
 }

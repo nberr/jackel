@@ -9,3 +9,18 @@
 */
 
 #include "OctavePanel.h"
+
+OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
+:   PanelBase(inProcessor)
+{
+    setSize(OCTAVE_WIDTH, OCTAVE_HEIGHT);
+}
+OctavePanel::~OctavePanel()
+{
+    
+}
+
+void OctavePanel::paint(Graphics& g)
+{
+    
+}

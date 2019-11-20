@@ -12,6 +12,9 @@
 
 #include "PanelBase.h"
 
+#include "TonalCenterPanel.h"
+#include "TranslationPanel.h"
+
 class CenterPanel
 :   public PanelBase
 {
@@ -22,5 +25,6 @@ public:
     void paint(Graphics& g) override;
     
 private:
-    
+    std::unique_ptr<TonalCenterPanel> mTCPanel;
+    std::unique_ptr<TranslationPanel> mTranslationPanel;
 };

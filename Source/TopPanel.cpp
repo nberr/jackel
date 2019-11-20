@@ -24,12 +24,6 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
     
     addAndMakeVisible(mMidiInputDevs);
     
-    /*
-    mMidiInputLabel.setBounds(20, 25, MIDI_DEV_LB_WIDTH, MIDI_DEV_LB_HEIGHT);
-    mMidiInputLabel.setText("Midi device:", dontSendNotification);
-    mMidiInputLabel.setColour(Label::textColourId, Colours::black);
-    addAndMakeVisible(mMidiInputLabel);
-     */
 }
 
 TopPanel::~TopPanel()

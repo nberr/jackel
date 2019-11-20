@@ -12,8 +12,7 @@
 
 #include "PanelBase.h"
 
-#include "TonalCenterPanel.h"
-#include "TranslationPanel.h"
+#include "OctavePanel.h"
 
 class BottomPanel
 :   public PanelBase
@@ -25,8 +24,9 @@ public:
     void paint(Graphics& g) override;
     
 private:
-    std::unique_ptr<TonalCenterPanel> mTCPanel;
-    std::unique_ptr<TranslationPanel> mTranslationPanel;
+    //std::unique_ptr<TonalCenterPanel> mTCPanel;
+    //std::unique_ptr<TranslationPanel> mTranslationPanel;
+    std::unique_ptr<OctavePanel> mOctavePanel;
     
     MidiKeyboardComponent* mKeyboardComponent;
 };

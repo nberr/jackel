@@ -13,11 +13,11 @@
 TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(TC_BOX_WIDTH, TC_BOX_HEIGHT);
+    setSize(TONAL_CENTER_WIDTH, TONAL_CENTER_HEIGHT);
     
-    mSpinner = std::make_unique<JackelParameterSpinner>(inProcessor->parameters, "TonalCenter", "Tonal Center");
-    mSpinner->setBounds(0, 0, TC_BOX_WIDTH , TC_BOX_HEIGHT);
-    addAndMakeVisible(*mSpinner);
+    //mSpinner = std::make_unique<JackelParameterSpinner>(inProcessor->parameters, "TonalCenter", "Tonal Center");
+    //mSpinner->setBounds(0, 0, TC_BOX_WIDTH , TC_BOX_HEIGHT);
+    //addAndMakeVisible(*mSpinner);
 }
 
 TonalCenterPanel::~TonalCenterPanel()

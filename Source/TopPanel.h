@@ -24,4 +24,6 @@ public:
 private:
     ComboBox* mMidiInputDevs;
     Label mMidiInputLabel;
+    
+    // TODO: add logo here
 };
