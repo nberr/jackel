@@ -21,6 +21,9 @@ public:
     
     void paint(Graphics& g) override;
     
+    void updateTranslation();
+    
 private:
     std::unique_ptr<GroupComponent> mTranslationGroup;
+    float *mTonalCenterParameter;
 };

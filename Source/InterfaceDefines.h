@@ -59,6 +59,9 @@
 #define TRANSLATION_WIDTH 370
 #define TRANSLATION_HEIGHT 190
 
+#define TRANSLATION_LABEL_WIDTH 40
+#define TRANSLATION_LABEL_HEIGHT 40
+
 /*
  ==============================================================================
 

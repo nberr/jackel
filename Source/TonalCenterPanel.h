@@ -13,12 +13,13 @@
 #include "PanelBase.h"
 #include "JackelParameters.h"
 #include "JackelParameterSpinner.h"
+#include "TranslationPanel.h"
 
 class TonalCenterPanel
 :   public PanelBase
 {
 public:
-    TonalCenterPanel(JackelAudioProcessor* inProcessor);
+    TonalCenterPanel(JackelAudioProcessor* inProcessor, TranslationPanel* inTranslationPanel);
     ~TonalCenterPanel();
     
     void paint(Graphics& g) override;
@@ -38,5 +39,6 @@ private:
     std::unique_ptr<GroupComponent> mTCButtonGroup;
     
     float* mTonalCenterParameter;
+    TranslationPanel* mTranslationPanel;
     
 };

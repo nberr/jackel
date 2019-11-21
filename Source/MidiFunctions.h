@@ -30,3 +30,11 @@ inline int getNegative(int note, float center, int octave)
      */
     return (2 * (((octave+2) * 12) + center + 3.5)) - note;
 }
+
+inline int getNegative(int note, float center)
+{
+    float polar = note - center;
+    int newNote = (center - polar < 0) ? ((int)(center - polar + 12)) % 12 : ((int)(center - polar)) % 12;
+    
+    return newNote;
+}

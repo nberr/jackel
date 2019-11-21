@@ -10,7 +10,7 @@
 
 #include "TonalCenterPanel.h"
 
-TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
+TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor, TranslationPanel* inTranslationPanel)
 :   PanelBase(inProcessor)
 {
     setSize(TONAL_CENTER_WIDTH, TONAL_CENTER_HEIGHT);
@@ -18,6 +18,8 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
     //mSpinner = std::make_unique<JackelParameterSpinner>(inProcessor->parameters, "TonalCenter", "Tonal Center");
     //mSpinner->setBounds(0, 0, TC_BOX_WIDTH , TC_BOX_HEIGHT);
     //addAndMakeVisible(*mSpinner);
+    
+    mTranslationPanel = inTranslationPanel;
     
     mTCButtonGroup = std::make_unique<GroupComponent>("TonalButtons", "Tonal Center");
     // TODO:match look and feel
@@ -38,6 +40,10 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
             
             // set the param value
             *mTonalCenterParameter = i;
+            
+            // update the translation panel
+            mTranslationPanel->updateTranslation();
+            
         };
         
         mTCButtons[i].setBounds((i%4 * TC_BUTTON_WIDTH) + 25, (floor(i/4)*(TC_BUTTON_HEIGHT+5)) + 25, TC_BUTTON_WIDTH, TC_BUTTON_HEIGHT);
@@ -46,6 +52,8 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor)
         
         addAndMakeVisible(mTCButtons[i]);
     }
+    
+    mTCButtons[(int)*mTonalCenterParameter].setToggleState(true, dontSendNotification);
 }
 
 TonalCenterPanel::~TonalCenterPanel()

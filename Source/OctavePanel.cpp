@@ -47,6 +47,8 @@ OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
         // add to scene
         addAndMakeVisible(buttons[i]);
     }
+    
+    buttons[(int)*mOctaveParameter+2].setToggleState(true, dontSendNotification);
 }
 OctavePanel::~OctavePanel()
 {
@@ -69,5 +71,5 @@ void OctavePanel::updateToggleState (Button* button, String name)
     auto state = button->getToggleState();
     String stateString = state ? "ON" : "OFF";
 
-    Logger::outputDebugString (name + " Button changed to " + stateString);
+    //Logger::outputDebugString (name + " Button changed to " + stateString);
 };
