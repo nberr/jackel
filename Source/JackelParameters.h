@@ -24,17 +24,17 @@ enum JackelParameters
 
 static const String TonalCenterLables[NUM_TONAL_CENTERS] = {
     "C",
-    "Db",
+    "C#/Db",
     "D",
     "Eb",
     "E",
     "F",
-    "Gb",
+    "F#/Gb",
     "G",
     "Ab",
     "A",
     "Bb",
-    "B"
+    "B/Cb"
 };
 
 static const String JPID[JP_TotalNumParams] =

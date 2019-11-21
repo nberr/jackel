@@ -20,6 +20,12 @@ public:
     ~OctavePanel();
     
     void paint(Graphics& g) override;
-private:
     
+    void updateToggleState(Button* button, String name);
+    
+private:
+    TextButton buttons[11];
+    std::unique_ptr<GroupComponent> mOctaveGroup;
+    
+    float* mOctaveParameter;
 };

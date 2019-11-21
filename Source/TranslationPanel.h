@@ -22,5 +22,5 @@ public:
     void paint(Graphics& g) override;
     
 private:
-    
+    std::unique_ptr<GroupComponent> mTranslationGroup;
 };

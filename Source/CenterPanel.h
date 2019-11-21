@@ -27,4 +27,6 @@ public:
 private:
     std::unique_ptr<TonalCenterPanel> mTCPanel;
     std::unique_ptr<TranslationPanel> mTranslationPanel;
+    
+    std::unique_ptr<GroupComponent> mTranslationGroup;
 };

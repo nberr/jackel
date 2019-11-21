@@ -17,7 +17,7 @@ BottomPanel::BottomPanel(JackelAudioProcessor* inProcessor, MidiKeyboardComponen
     
     mOctavePanel = std::make_unique<OctavePanel>(inProcessor);
     // TODO: change magic number
-    mOctavePanel->setTopLeftPosition(LARGE_BUFFER, 310);
+    mOctavePanel->setTopLeftPosition(LARGE_BUFFER, MEDIUM_BUFFER);
     addAndMakeVisible(*mOctavePanel);
     
     mKeyboardComponent = inKeyboardComponent;
@@ -32,10 +32,10 @@ BottomPanel::~BottomPanel()
 void BottomPanel::paint(Graphics& g)
 {
     //PanelBase::paint(g);
-    g.setColour(JackelColour_Light);
-    g.fillAll();
+    //g.setColour(JackelColour_Light);
+    //g.fillAll();
     
-    g.setColour(JackelColour_Darker);
-    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
+    //g.setColour(JackelColour_Darker);
+    //g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
     
 }

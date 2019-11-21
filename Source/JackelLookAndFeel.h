@@ -42,6 +42,8 @@ public:
         setColour(PopupMenu::backgroundColourId, JackelColour_Lighter);
         setColour(PopupMenu::textColourId, JackelColour_HighlightText);
         setColour(PopupMenu::highlightedBackgroundColourId, JackelColour_HighlightBg);
+        
+        // set stuff for buttons
     }
     
     virtual ~JackelLookAndFeel()
