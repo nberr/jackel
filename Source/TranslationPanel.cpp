@@ -17,7 +17,7 @@ TranslationPanel::TranslationPanel(JackelAudioProcessor* inProcessor)
 {
     setSize(TRANSLATION_WIDTH, TRANSLATION_HEIGHT);
     
-    mTonalCenterParameter = inProcessor->parameters.getRawParameterValue("TonalCenter");
+    mTonalCenterParameter = (float *)inProcessor->parameters.getRawParameterValue("TonalCenter");
     
     mTranslationGroup = std::make_unique<GroupComponent>("Translation", "Translation");
     // TODO:match look and feel

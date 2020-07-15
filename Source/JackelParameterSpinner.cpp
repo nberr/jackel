@@ -21,7 +21,7 @@ JackelParameterSpinner::JackelParameterSpinner(AudioProcessorValueTreeState& sta
                                                const String& parameterID,
                                                const String& parameterLabel)
 {
-    mTonalCenterParameter = stateToControl.getRawParameterValue("TonalCenter");
+    mTonalCenterParameter = (float *)stateToControl.getRawParameterValue("TonalCenter");
     
     index = (int)*stateToControl.getRawParameterValue(parameterID);
     // TODO: set this value with constructor

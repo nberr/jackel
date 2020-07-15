@@ -151,9 +151,10 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
     std::unique_ptr<MidiBuffer> processedMidi = std::make_unique<MidiBuffer>();
     int time;
     MidiMessage m;
- 
-    for (MidiBuffer::Iterator i (midiMessages); i.getNextEvent (m, time);)
+    for (const MidiMessageMetadata metadata : midiMessages)
+    //for (MidiBufferIterator i (midiMessages); i.getNextEvent (m, time);)
     {
+        time = metadata.getMessage().getTimeStamp();
         mMidiProcessor->process(m, time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"),
                                                           (int)*parameters.getRawParameterValue("Octave"));
     }

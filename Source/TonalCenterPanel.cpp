@@ -14,7 +14,7 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor, Translatio
 :   PanelBase(inProcessor)
 {
     setSize(TONAL_CENTER_WIDTH, TONAL_CENTER_HEIGHT);
-    mTonalCenterParameter = inProcessor->parameters.getRawParameterValue("TonalCenter");
+    mTonalCenterParameter = (float *)inProcessor->parameters.getRawParameterValue("TonalCenter");
     //mSpinner = std::make_unique<JackelParameterSpinner>(inProcessor->parameters, "TonalCenter", "Tonal Center");
     //mSpinner->setBounds(0, 0, TC_BOX_WIDTH , TC_BOX_HEIGHT);
     //addAndMakeVisible(*mSpinner);

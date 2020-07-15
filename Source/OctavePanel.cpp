@@ -15,7 +15,7 @@ OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
 {
     setSize(OCTAVE_WIDTH, OCTAVE_HEIGHT + 3);
     
-    mOctaveParameter = inProcessor->parameters.getRawParameterValue("Octave");
+    mOctaveParameter = (float *)inProcessor->parameters.getRawParameterValue("Octave");
     
     mOctaveGroup = std::make_unique<GroupComponent>("OctaveButtons", "Octave");
     // TODO:match look and feel
