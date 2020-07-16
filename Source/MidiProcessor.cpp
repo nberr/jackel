@@ -43,9 +43,6 @@ void MidiProcessor::process(MidiMessage message, int time, MidiBuffer* processed
     
     if (message.isNoteOn())
     {
-        
-            
-            
             processedMidi->addEvent(MidiMessage::noteOn (message.getChannel(),
                                                          newNote,
                                                          message.getVelocity()),

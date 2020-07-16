@@ -27,14 +27,19 @@ MidiController::MidiController(JackelAudioProcessor* inProcessor)
     mMidiInputDevs = std::make_unique<ComboBox>();
     
     mMidiInputDevs->setTextWhenNoChoicesAvailable ("No MIDI Inputs Enabled");
-    auto midiInputs = MidiInput::getDevices();
-    mMidiInputDevs->addItemList (midiInputs, 1);
+    auto midiInputs = MidiInput::getAvailableDevices();
+    
+    juce::StringArray midiInputNames;
+    for (auto input : midiInputs)
+        midiInputNames.add(input.name);
+    
+    mMidiInputDevs->addItemList (midiInputNames, 1);
     mMidiInputDevs->onChange = [this] { setMidiInput (mMidiInputDevs->getSelectedItemIndex()); };
 
     // find the first enabled device and use that by default
     for (auto midiInput : midiInputs)
     {
-        if (deviceManager.isMidiInputEnabled (midiInput))
+        if (deviceManager.isMidiInputEnabled (midiInput.identifier))
         {
             setMidiInput (midiInputs.indexOf (midiInput));
             break;
@@ -126,16 +131,16 @@ ComboBox* MidiController::getComboBox()
 
 void MidiController::setMidiInput (int index)
 {
-    auto list = MidiInput::getDevices();
+    auto list = MidiInput::getAvailableDevices();
 
-    deviceManager.removeMidiInputCallback (list[lastInputIndex], this);
+    deviceManager.removeMidiInputDeviceCallback (list[lastInputIndex].identifier, this);
 
     auto newInput = list[index];
 
-    if (! deviceManager.isMidiInputEnabled (newInput))
-        deviceManager.setMidiInputEnabled (newInput, true);
+    if (! deviceManager.isMidiInputDeviceEnabled (newInput.identifier))
+        deviceManager.setMidiInputDeviceEnabled (newInput.identifier, true);
 
-    deviceManager.addMidiInputCallback (newInput, this);
+    deviceManager.addMidiInputDeviceCallback (newInput.identifier, this);
     mMidiInputDevs->setSelectedId (index + 1, dontSendNotification);
 
     lastInputIndex = index;
