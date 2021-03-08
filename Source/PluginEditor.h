@@ -36,6 +36,9 @@ private:
     
     std::unique_ptr<MainPanel> mMainPanel;
     std::unique_ptr<JackelLookAndFeel> mLookAndFeel;
+    
+    std::unique_ptr<juce::TextButton> mTranslationPanelButton;
+    bool translationShown = true;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessorEditor)
 };

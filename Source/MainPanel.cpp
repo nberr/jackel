@@ -13,7 +13,7 @@
 MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+    setSize(MAIN_PANEL_WIDTH + TRANSLATION_WIDTH, MAIN_PANEL_HEIGHT);
     
     mMidiController = std::make_unique<MidiController>(inProcessor);
     

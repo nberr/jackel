@@ -13,10 +13,10 @@
 CenterPanel::CenterPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(CENTER_PANEL_WIDTH, CENTER_PANEL_HEIGHT);
+    setSize(CENTER_PANEL_WIDTH + TRANSLATION_WIDTH, CENTER_PANEL_HEIGHT);
     
     mTranslationPanel = std::make_unique<TranslationPanel>(inProcessor);
-    mTranslationPanel->setTopLeftPosition(LARGE_BUFFER + TONAL_CENTER_WIDTH + LARGE_BUFFER, MEDIUM_BUFFER);
+    mTranslationPanel->setTopLeftPosition(MAIN_PANEL_WIDTH, MEDIUM_BUFFER);
     addAndMakeVisible(*mTranslationPanel);
     
     mTCPanel = std::make_unique<TonalCenterPanel>(inProcessor, &*mTranslationPanel);

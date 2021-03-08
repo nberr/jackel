@@ -25,6 +25,25 @@ JackelAudioProcessorEditor::JackelAudioProcessorEditor (JackelAudioProcessor& p)
     mLookAndFeel = std::make_unique<JackelLookAndFeel>();
     setLookAndFeel(&*mLookAndFeel);
     LookAndFeel::setDefaultLookAndFeel(&*mLookAndFeel);
+    
+    mTranslationPanelButton = std::make_unique<juce::TextButton>(">");
+    mTranslationPanelButton->setSize(20, MAIN_PANEL_HEIGHT);
+    mTranslationPanelButton->setTopLeftPosition(MAIN_PANEL_WIDTH - 20, 0);
+    
+    mTranslationPanelButton->onClick = [this] {
+        if (translationShown)
+        {
+            setSize(MAIN_PANEL_WIDTH + TRANSLATION_WIDTH, MAIN_PANEL_HEIGHT);
+        }
+        else
+        {
+            setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+        }
+        
+        translationShown = !translationShown;
+    };
+    
+    addAndMakeVisible(*mTranslationPanelButton);
 }
 
 JackelAudioProcessorEditor::~JackelAudioProcessorEditor()

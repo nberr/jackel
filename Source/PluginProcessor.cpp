@@ -152,7 +152,6 @@ void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer&
     int time;
     MidiMessage m;
     for (const MidiMessageMetadata metadata : midiMessages)
-    //for (MidiBufferIterator i (midiMessages); i.getNextEvent (m, time);)
     {
         time = metadata.getMessage().getTimeStamp();
         mMidiProcessor->process(metadata.getMessage(), time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"),

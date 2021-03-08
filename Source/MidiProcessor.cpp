@@ -27,9 +27,6 @@ MidiProcessor::~MidiProcessor()
 
 void MidiProcessor::process(MidiMessage message, int time, MidiBuffer* processedMidi, int tonalCenter, int octave)
 {
-    // TODO: grab this value from the parameter
-    // const int tonalCenter = 0;
-    
     // convert the original note to it's negative value
     const int oldNote = message.getNoteNumber();
     const int newNote = getNegative(oldNote, tonalCenter, octave);
