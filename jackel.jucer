@@ -5,32 +5,31 @@
               pluginManufacturer="nberr" pluginName="jackel" pluginDesc="negative harmony midi generator"
               displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="cmmOOt" name="jackel">
-    <GROUP id="{12D60E69-9322-BCD5-7522-C342A85F740F}" name="Assets"/>
-    <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="Process">
-      <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
-            file="Source/MidiProcessor.cpp"/>
-      <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
-    </GROUP>
-    <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Control">
-      <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
-            file="Source/JackelParameterSpinner.cpp"/>
-      <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
-            file="Source/JackelParameterSpinner.h"/>
+    <GROUP id="{6083A5A6-CF7F-5B60-B528-EDEAB639EA2F}" name="Registration"/>
+    <GROUP id="{3211FADB-8340-A898-AED5-F8F7F00EEDD1}" name="State"/>
+    <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="FX">
+      <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
       <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
             file="Source/MidiController.cpp"/>
       <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
             file="Source/MidiController.h"/>
+      <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
+            file="Source/MidiProcessor.cpp"/>
+      <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
     </GROUP>
-    <GROUP id="{49144A76-77F3-B8A2-9726-F100AC6B1618}" name="Helpers">
-      <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
-            file="Source/InterfaceDefines.h"/>
-      <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
-            file="Source/JackelLookAndFeel.h"/>
+    <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Parameters">
       <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
             file="Source/JackelParameters.h"/>
-      <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
+      <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
+            file="Source/JackelParameterSpinner.cpp"/>
+      <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
+            file="Source/JackelParameterSpinner.h"/>
     </GROUP>
-    <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="Panels">
+    <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="UI">
+      <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
+            file="Source/JackelLookAndFeel.h"/>
+      <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
+            file="Source/InterfaceDefines.h"/>
       <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
       <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
       <FILE id="oqt2tn" name="CenterPanel.cpp" compile="1" resource="0" file="Source/CenterPanel.cpp"/>
