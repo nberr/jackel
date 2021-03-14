@@ -34,5 +34,5 @@ private:
         
     std::unique_ptr<juce::ComboBox> mPresetDisplay;
         
-    std::unique_ptr<juce::TextButton> mNewPreset, mSavePreset, mSaveAsPreset;
+    std::unique_ptr<juce::TextButton> mNewPreset, mSavePreset, mPreviousPreset, mNextPreset;
 };

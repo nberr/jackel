@@ -19,40 +19,44 @@ PresetPanel::PresetPanel(JackelAudioProcessor *inProcessor)
     
     mProcessor = inProcessor;
     
-    int button_x = 15;
-    int button_y = 10;
-    int button_w = 55;
-    int button_h = 25;
-    
-    mNewPreset = std::make_unique<juce::TextButton>();
-    mNewPreset->setButtonText("NEW");
-    mNewPreset->setBounds(button_x, button_y, button_w, button_h);
+    mNewPreset = std::make_unique<juce::TextButton>("NEW");
+    mNewPreset->setSize(PRESET_NEW_WIDTH, PRESET_NEW_HEIGHT);
+    mNewPreset->setTopLeftPosition((PRESET_PANEL_WIDTH * 0.5) - (PRESET_TOTAL_WIDTH * 0.5), (PRESET_PANEL_HEIGHT * 0.5) - (PRESET_DISPLAY_HEIGHT * 0.5));
     mNewPreset->addListener(this);
     addAndMakeVisible(*mNewPreset);
     
-    button_x = button_x + button_w;
+    mPreviousPreset = std::make_unique<juce::TextButton>("<");
+    mPreviousPreset->setSize(PRESET_PREV_WIDTH, PRESET_PREV_HEIGHT);
+    mPreviousPreset->setTopLeftPosition((PRESET_PANEL_WIDTH * 0.5) - (PRESET_TOTAL_WIDTH * 0.5) + PRESET_NEW_WIDTH, (PRESET_PANEL_HEIGHT * 0.5) - (PRESET_DISPLAY_HEIGHT * 0.5));
+    mPreviousPreset->addListener(this);
+    addAndMakeVisible(*mPreviousPreset);
     
-    mSavePreset = std::make_unique<juce::TextButton>();
-    mSavePreset->setButtonText("SAVE");
-    mSavePreset->setBounds(button_x, button_y, button_w, button_h);
+    mPresetDisplay = std::make_unique<juce::ComboBox>();
+    mPresetDisplay->setSize(PRESET_DISPLAY_WIDTH, PRESET_DISPLAY_HEIGHT);
+    mPresetDisplay->setTopLeftPosition((PRESET_PANEL_WIDTH * 0.5) - (PRESET_DISPLAY_WIDTH * 0.5), (PRESET_PANEL_HEIGHT * 0.5) - (PRESET_DISPLAY_HEIGHT * 0.5));
+    mPresetDisplay->addListener(this);
+    addAndMakeVisible(*mPresetDisplay);
+    
+    mNextPreset = std::make_unique<juce::TextButton>(">");
+    mNextPreset->setSize(PRESET_PREV_WIDTH, PRESET_PREV_HEIGHT);
+    mNextPreset->setTopLeftPosition((PRESET_PANEL_WIDTH * 0.5) - (PRESET_TOTAL_WIDTH * 0.5) + PRESET_NEW_WIDTH + PRESET_PREV_WIDTH + PRESET_DISPLAY_WIDTH, (PRESET_PANEL_HEIGHT * 0.5) - (PRESET_DISPLAY_HEIGHT * 0.5));
+    mNextPreset->addListener(this);
+    addAndMakeVisible(*mNextPreset);
+    
+    mSavePreset = std::make_unique<juce::TextButton>("SAVE");
+    mSavePreset->setSize(PRESET_SAVE_WIDTH, PRESET_SAVE_HEIGHT);
+    mSavePreset->setTopLeftPosition((PRESET_PANEL_WIDTH * 0.5) - (PRESET_TOTAL_WIDTH * 0.5) + PRESET_NEW_WIDTH + PRESET_PREV_WIDTH + PRESET_DISPLAY_WIDTH + PRESET_NEXT_WIDTH, (PRESET_PANEL_HEIGHT * 0.5) - (PRESET_DISPLAY_HEIGHT * 0.5));
     mSavePreset->addListener(this);
     addAndMakeVisible(*mSavePreset);
     
-    button_x = button_x + button_w;
     
-    mSaveAsPreset = std::make_unique<juce::TextButton>();
-    mSaveAsPreset->setButtonText("SAVE AS");
-    mSaveAsPreset->setBounds(button_x, button_y, button_w, button_h);
-    mSaveAsPreset->addListener(this);
-    addAndMakeVisible(*mSaveAsPreset);
     
-    const int comboBox_w = 200;
-    const int comboBox_x = PRESET_PANEL_WIDTH*0.5 - comboBox_w*0.5;
+   
     
-    mPresetDisplay = std::make_unique<juce::ComboBox>();
-    mPresetDisplay->setBounds(comboBox_x, button_y, comboBox_w, button_h);
-    mPresetDisplay->addListener(this);
-    addAndMakeVisible(*mPresetDisplay);
+
+    
+    
+    
     
     //updatePresetComboBox();
 }
@@ -74,10 +78,6 @@ void PresetPanel::buttonClicked(juce::Button* b)
     else if (b == &*mSavePreset)
     {
         presetManager->savePreset();
-    }
-    else if (b == &*mSaveAsPreset)
-    {
-        displaySaveAsPopup();
     }
 }
 

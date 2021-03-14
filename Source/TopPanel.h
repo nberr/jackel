@@ -19,11 +19,11 @@ class TopPanel
 :   public PanelBase
 {
 public:
-    TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs);
+    TopPanel(JackelAudioProcessor* inProcessor);
     ~TopPanel();
     
 private:
-    ComboBox* mMidiInputDevs;
+    
     Label mMidiInputLabel;
     
     std::unique_ptr<LogoPanel> mLogoPanel;

@@ -22,4 +22,6 @@ public:
 private:
     
     // TODO: add logo here
+    std::unique_ptr<juce::TextButton> mLogo;
+    std::unique_ptr<juce::TextButton> mJackel;
 };

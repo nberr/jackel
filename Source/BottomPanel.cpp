@@ -21,7 +21,7 @@ BottomPanel::BottomPanel(JackelAudioProcessor* inProcessor, MidiKeyboardComponen
     //addAndMakeVisible(*mOctavePanel);
     
     mKeyboardComponent = inKeyboardComponent;
-    mKeyboardComponent->setTopLeftPosition(5, 5);
+    mKeyboardComponent->setTopLeftPosition((BOTTOM_PANEL_WIDTH * 0.5) - (KEYBOARD_WIDTH * 0.5), (BOTTOM_PANEL_HEIGHT * 0.5) - (KEYBOARD_HEIGHT * 0.5));
     addAndMakeVisible(mKeyboardComponent);
 }
 

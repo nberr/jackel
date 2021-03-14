@@ -61,7 +61,7 @@ JackelAudioProcessorEditor::~JackelAudioProcessorEditor()
 //==============================================================================
 void JackelAudioProcessorEditor::paint (Graphics& g)
 {
-
+    
 }
 
 void JackelAudioProcessorEditor::resized()

@@ -10,12 +10,12 @@
 
 #include "CenterPanel.h"
 
-CenterPanel::CenterPanel(JackelAudioProcessor* inProcessor)
+CenterPanel::CenterPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
 :   PanelBase(inProcessor)
 {
     setSize(CENTER_PANEL_WIDTH, CENTER_PANEL_HEIGHT);
     
-    mDeviceSelectorPanel = std::make_unique<DeviceSelectorPanel>(inProcessor);
+    mDeviceSelectorPanel = std::make_unique<DeviceSelectorPanel>(inProcessor, inMidiInputDevs);
     addAndMakeVisible(*mDeviceSelectorPanel);
     
     mTCPanel = std::make_unique<TonalCenterPanel>(inProcessor, &*mTranslationPanel);

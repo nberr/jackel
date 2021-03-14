@@ -12,7 +12,7 @@
 
 #include "MidiProcessor.h"
 
-TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
+TopPanel::TopPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
@@ -24,12 +24,7 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
     mPresetPanel->setTopLeftPosition(0, LOGO_PANEL_HEIGHT);
     addAndMakeVisible(*mPresetPanel);
     
-    mMidiInputDevs = inMidiInputDevs;
-    mMidiInputDevs->setColour(ComboBox::backgroundColourId, JackelColour_Lighter);
-    mMidiInputDevs->setColour(ComboBox::textColourId, JackelColour_Darker);
-    mMidiInputDevs->setColour(ComboBox::arrowColourId, JackelColour_Darker);
     
-    //addAndMakeVisible(mMidiInputDevs);
     
 }
 

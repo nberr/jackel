@@ -17,10 +17,10 @@ MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
     
     mMidiController = std::make_unique<MidiController>(inProcessor);
     
-    mTopPanel = std::make_unique<TopPanel>(inProcessor, mMidiController->getComboBox());
+    mTopPanel = std::make_unique<TopPanel>(inProcessor);
     addAndMakeVisible(*mTopPanel);
     
-    mCenterPanel = std::make_unique<CenterPanel>(inProcessor);
+    mCenterPanel = std::make_unique<CenterPanel>(inProcessor, mMidiController->getComboBox());
     mCenterPanel->setTopLeftPosition(0, TOP_PANEL_HEIGHT);
     addAndMakeVisible(*mCenterPanel);
     

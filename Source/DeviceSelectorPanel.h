@@ -16,9 +16,9 @@ class DeviceSelectorPanel
 :   public PanelBase
 {
 public:
-    DeviceSelectorPanel(JackelAudioProcessor* inProcessor);
+    DeviceSelectorPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs);
     ~DeviceSelectorPanel();
     
 private:
-    
+    ComboBox* mMidiInputDevs;
 };

@@ -13,14 +13,14 @@
 OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(OCTAVE_SELECT_WIDTH, OCTAVE_SELECT_HEIGHT);
+    setSize(OCTAVE_PANEL_WIDTH, OCTAVE_PANEL_HEIGHT);
     
     mOctaveParameter = (float *)inProcessor->parameters.getRawParameterValue("Octave");
     
     mOctaveGroup = std::make_unique<GroupComponent>("OctaveButtons", "Octave");
     // TODO:match look and feel
     mOctaveGroup->setColour(GroupComponent::textColourId, Colours::black);
-    mOctaveGroup->setBounds(0, 0, getWidth(), getHeight());
+    mOctaveGroup->setBounds((OCTAVE_PANEL_WIDTH * 0.5) - (OCTAVE_SELECT_WIDTH * 0.5), 0, OCTAVE_SELECT_WIDTH, OCTAVE_SELECT_HEIGHT);
     addAndMakeVisible(*mOctaveGroup);
     
     // initialize buttons
@@ -40,7 +40,7 @@ OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
         };
         
         // set size
-        buttons[i].setBounds((i * OCTAVE_BUTTON_WIDTH) + MEDIUM_BUFFER, MEDIUM_BUFFER + SMALL_BUFFER, OCTAVE_BUTTON_WIDTH, OCTAVE_BUTTON_HEIGHT);
+        buttons[i].setBounds((i * OCTAVE_BUTTON_WIDTH) + MEDIUM_BUFFER + (OCTAVE_PANEL_WIDTH * 0.5) - (OCTAVE_SELECT_WIDTH * 0.5) + 10, MEDIUM_BUFFER + SMALL_BUFFER, OCTAVE_BUTTON_WIDTH, OCTAVE_BUTTON_HEIGHT);
         
         // attach parameter
         

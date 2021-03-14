@@ -24,11 +24,10 @@ class CenterPanel
 :   public PanelBase
 {
 public:
-    CenterPanel(JackelAudioProcessor* inProcessor);
+    CenterPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs);
     ~CenterPanel();
     
 private:
-    
     std::unique_ptr<DeviceSelectorPanel> mDeviceSelectorPanel;
     std::unique_ptr<TonalCenterPanel> mTCPanel;
     std::unique_ptr<InputPanel> mInputPanel;

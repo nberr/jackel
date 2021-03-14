@@ -50,7 +50,7 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor, Translatio
         // set bounds
 
         
-        addAndMakeVisible(mTCButtons[i]);
+        //addAndMakeVisible(mTCButtons[i]);
     }
     
     mTCButtons[(int)*mTonalCenterParameter].setToggleState(true, dontSendNotification);
