@@ -19,8 +19,6 @@ public:
     OctavePanel(JackelAudioProcessor* inProcessor);
     ~OctavePanel();
     
-    void paint(Graphics& g) override;
-    
     void updateToggleState(Button* button, String name);
     
 private:

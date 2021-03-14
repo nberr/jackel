@@ -17,33 +17,39 @@ JackelAudioProcessorEditor::JackelAudioProcessorEditor (JackelAudioProcessor& p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+    setSize (MAIN_PANEL_WIDTH , MAIN_PANEL_HEIGHT);
     
     mMainPanel = std::make_unique<MainPanel>(&processor);
     addAndMakeVisible(*mMainPanel);
     
-    mLookAndFeel = std::make_unique<JackelLookAndFeel>();
-    setLookAndFeel(&*mLookAndFeel);
-    LookAndFeel::setDefaultLookAndFeel(&*mLookAndFeel);
     
-    mTranslationPanelButton = std::make_unique<juce::TextButton>(">");
-    mTranslationPanelButton->setSize(20, MAIN_PANEL_HEIGHT);
-    mTranslationPanelButton->setTopLeftPosition(MAIN_PANEL_WIDTH - 20, 0);
+    mPopoutButton = std::make_unique<juce::TextButton>(">");
+    mPopoutButton->setSize(POPOUT_BUTTON_WIDTH, CENTER_PANEL_HEIGHT);
+    mPopoutButton->setTopLeftPosition(MAIN_PANEL_WIDTH - POPOUT_BUTTON_WIDTH, TOP_PANEL_HEIGHT);
     
-    mTranslationPanelButton->onClick = [this] {
-        if (translationShown)
+    mPopoutButton->onClick = [this] {
+        if (mPopoutShow)
         {
-            setSize(MAIN_PANEL_WIDTH + TRANSLATION_WIDTH, MAIN_PANEL_HEIGHT);
+            setSize(MAIN_PANEL_WIDTH + POPOUT_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+            mPopoutButton->setButtonText("<");
         }
         else
         {
             setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+            mPopoutButton->setButtonText(">");
         }
-        
-        translationShown = !translationShown;
+        mPopoutShow = !mPopoutShow;
     };
     
-    addAndMakeVisible(*mTranslationPanelButton);
+    addAndMakeVisible(*mPopoutButton);
+    
+    mPopoutPanel = std::make_unique<PopoutPanel>(&processor);
+    mPopoutPanel->setTopLeftPosition(MAIN_PANEL_WIDTH, TOP_PANEL_HEIGHT);
+    addAndMakeVisible(*mPopoutPanel);
+    
+    mLookAndFeel = std::make_unique<JackelLookAndFeel>();
+    setLookAndFeel(&*mLookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel(&*mLookAndFeel);
 }
 
 JackelAudioProcessorEditor::~JackelAudioProcessorEditor()

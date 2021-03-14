@@ -13,7 +13,7 @@
 OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(OCTAVE_WIDTH, OCTAVE_HEIGHT + 3);
+    setSize(OCTAVE_SELECT_WIDTH, OCTAVE_SELECT_HEIGHT);
     
     mOctaveParameter = (float *)inProcessor->parameters.getRawParameterValue("Octave");
     
@@ -52,17 +52,6 @@ OctavePanel::OctavePanel(JackelAudioProcessor* inProcessor)
 }
 OctavePanel::~OctavePanel()
 {
-    
-}
-
-void OctavePanel::paint(Graphics& g)
-{
-    // PanelBase::paint(g);
-    //g.setColour(JackelColour_Lighter);
-    //g.fillAll();
-    
-    //g.setColour(JackelColour_Darker);
-    //g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 2);
     
 }
 

@@ -17,21 +17,23 @@ TopPanel::TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs)
 {
     setSize(TOP_PANEL_WIDTH, TOP_PANEL_HEIGHT);
     
+    mLogoPanel = std::make_unique<LogoPanel>(inProcessor);
+    addAndMakeVisible(*mLogoPanel);
+    
+    mPresetPanel = std::make_unique<PresetPanel>(inProcessor);
+    mPresetPanel->setTopLeftPosition(0, LOGO_PANEL_HEIGHT);
+    addAndMakeVisible(*mPresetPanel);
+    
     mMidiInputDevs = inMidiInputDevs;
     mMidiInputDevs->setColour(ComboBox::backgroundColourId, JackelColour_Lighter);
     mMidiInputDevs->setColour(ComboBox::textColourId, JackelColour_Darker);
     mMidiInputDevs->setColour(ComboBox::arrowColourId, JackelColour_Darker);
     
-    addAndMakeVisible(mMidiInputDevs);
+    //addAndMakeVisible(mMidiInputDevs);
     
 }
 
 TopPanel::~TopPanel()
 {
     
-}
-
-void TopPanel::paint(Graphics& g)
-{
-    PanelBase::paint(g);
 }

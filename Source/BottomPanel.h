@@ -21,8 +21,6 @@ public:
     BottomPanel(JackelAudioProcessor* inProcessor, MidiKeyboardComponent* inKeyboardComponent);
     ~BottomPanel();
     
-    void paint(Graphics& g) override;
-    
 private:
     //std::unique_ptr<TonalCenterPanel> mTCPanel;
     //std::unique_ptr<TranslationPanel> mTranslationPanel;

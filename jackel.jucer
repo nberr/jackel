@@ -5,60 +5,92 @@
               pluginManufacturer="nberr" pluginName="jackel" pluginDesc="negative harmony midi generator"
               displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="cmmOOt" name="jackel">
-    <GROUP id="{6083A5A6-CF7F-5B60-B528-EDEAB639EA2F}" name="Registration"/>
-    <GROUP id="{3211FADB-8340-A898-AED5-F8F7F00EEDD1}" name="State"/>
-    <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="FX">
-      <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
-      <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
-            file="Source/MidiController.cpp"/>
-      <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
-            file="Source/MidiController.h"/>
-      <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
-            file="Source/MidiProcessor.cpp"/>
-      <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
-    </GROUP>
-    <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Parameters">
-      <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
-            file="Source/JackelParameters.h"/>
-      <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
-            file="Source/JackelParameterSpinner.cpp"/>
-      <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
-            file="Source/JackelParameterSpinner.h"/>
-    </GROUP>
-    <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="UI">
-      <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
-            file="Source/JackelLookAndFeel.h"/>
-      <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
-            file="Source/InterfaceDefines.h"/>
-      <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
-      <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
-      <FILE id="oqt2tn" name="CenterPanel.cpp" compile="1" resource="0" file="Source/CenterPanel.cpp"/>
-      <FILE id="PN3G7l" name="CenterPanel.h" compile="0" resource="0" file="Source/CenterPanel.h"/>
-      <FILE id="aWj2iZ" name="DeviceSelectorPanel.cpp" compile="1" resource="0"
-            file="Source/DeviceSelectorPanel.cpp"/>
-      <FILE id="naaadf" name="DeviceSelectorPanel.h" compile="0" resource="0"
-            file="Source/DeviceSelectorPanel.h"/>
-      <FILE id="eKQYGv" name="KeyboardPanel.cpp" compile="1" resource="0"
-            file="Source/KeyboardPanel.cpp"/>
-      <FILE id="ibRmni" name="KeyboardPanel.h" compile="0" resource="0" file="Source/KeyboardPanel.h"/>
-      <FILE id="GhlPP7" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
-      <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
-      <FILE id="OVIyPl" name="OctavePanel.cpp" compile="1" resource="0" file="Source/OctavePanel.cpp"/>
-      <FILE id="hCR80J" name="OctavePanel.h" compile="0" resource="0" file="Source/OctavePanel.h"/>
-      <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
-      <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
-      <FILE id="VQl3Pi" name="TonalCenterPanel.cpp" compile="1" resource="0"
-            file="Source/TonalCenterPanel.cpp"/>
-      <FILE id="SiZGcN" name="TonalCenterPanel.h" compile="0" resource="0"
-            file="Source/TonalCenterPanel.h"/>
-      <FILE id="DybRsn" name="TopPanel.cpp" compile="1" resource="0" file="Source/TopPanel.cpp"/>
-      <FILE id="d36G6w" name="TopPanel.h" compile="0" resource="0" file="Source/TopPanel.h"/>
-      <FILE id="iSqfDi" name="TranslationPanel.cpp" compile="1" resource="0"
-            file="Source/TranslationPanel.cpp"/>
-      <FILE id="EYcd6O" name="TranslationPanel.h" compile="0" resource="0"
-            file="Source/TranslationPanel.h"/>
-    </GROUP>
     <GROUP id="{86BDA4BF-1DD3-1187-D4D7-FED01ACE11E9}" name="Source">
+      <GROUP id="{6083A5A6-CF7F-5B60-B528-EDEAB639EA2F}" name="Registration">
+        <FILE id="jKo05g" name="MarketPlaceStatus.cpp" compile="1" resource="0"
+              file="Source/MarketPlaceStatus.cpp"/>
+        <FILE id="k0HoRf" name="MarketPlaceStatus.h" compile="0" resource="0"
+              file="Source/MarketPlaceStatus.h"/>
+      </GROUP>
+      <GROUP id="{3211FADB-8340-A898-AED5-F8F7F00EEDD1}" name="State">
+        <FILE id="LPyzNd" name="JackelPresetManager.cpp" compile="1" resource="0"
+              file="Source/JackelPresetManager.cpp"/>
+        <FILE id="dwNgvs" name="JackelPresetManager.h" compile="0" resource="0"
+              file="Source/JackelPresetManager.h"/>
+      </GROUP>
+      <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="FX">
+        <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
+        <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
+              file="Source/MidiController.cpp"/>
+        <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
+              file="Source/MidiController.h"/>
+        <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
+              file="Source/MidiProcessor.cpp"/>
+        <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
+      </GROUP>
+      <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Parameters">
+        <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
+              file="Source/JackelParameters.h"/>
+        <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
+              file="Source/JackelParameterSpinner.cpp"/>
+        <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
+              file="Source/JackelParameterSpinner.h"/>
+      </GROUP>
+      <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="UI">
+        <GROUP id="{738C6889-7F59-63D7-FB73-3A8326EADE76}" name="PopoutPanel">
+          <FILE id="iSqfDi" name="TranslationPanel.cpp" compile="1" resource="0"
+                file="Source/TranslationPanel.cpp"/>
+          <FILE id="EYcd6O" name="TranslationPanel.h" compile="0" resource="0"
+                file="Source/TranslationPanel.h"/>
+          <FILE id="Xo1ihw" name="PopoutPanel.cpp" compile="1" resource="0" file="Source/PopoutPanel.cpp"/>
+          <FILE id="TsnOzG" name="PopoutPanel.h" compile="0" resource="0" file="Source/PopoutPanel.h"/>
+        </GROUP>
+        <GROUP id="{A879002C-6F62-4D42-9314-DA4D3861678E}" name="BottomPanel">
+          <FILE id="eKQYGv" name="KeyboardPanel.cpp" compile="1" resource="0"
+                file="Source/KeyboardPanel.cpp"/>
+          <FILE id="ibRmni" name="KeyboardPanel.h" compile="0" resource="0" file="Source/KeyboardPanel.h"/>
+          <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
+          <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
+        </GROUP>
+        <GROUP id="{8B731859-9998-8A98-04B0-FF69215AE968}" name="CenterPanel">
+          <FILE id="aWj2iZ" name="DeviceSelectorPanel.cpp" compile="1" resource="0"
+                file="Source/DeviceSelectorPanel.cpp"/>
+          <FILE id="naaadf" name="DeviceSelectorPanel.h" compile="0" resource="0"
+                file="Source/DeviceSelectorPanel.h"/>
+          <FILE id="VQl3Pi" name="TonalCenterPanel.cpp" compile="1" resource="0"
+                file="Source/TonalCenterPanel.cpp"/>
+          <FILE id="SiZGcN" name="TonalCenterPanel.h" compile="0" resource="0"
+                file="Source/TonalCenterPanel.h"/>
+          <FILE id="OVIyPl" name="OctavePanel.cpp" compile="1" resource="0" file="Source/OctavePanel.cpp"/>
+          <FILE id="hCR80J" name="OctavePanel.h" compile="0" resource="0" file="Source/OctavePanel.h"/>
+          <FILE id="oqt2tn" name="CenterPanel.cpp" compile="1" resource="0" file="Source/CenterPanel.cpp"/>
+          <FILE id="PN3G7l" name="CenterPanel.h" compile="0" resource="0" file="Source/CenterPanel.h"/>
+          <FILE id="yaY8bj" name="OutputPanel.cpp" compile="1" resource="0" file="Source/OutputPanel.cpp"/>
+          <FILE id="ZRF7E1" name="OutputPanel.h" compile="0" resource="0" file="Source/OutputPanel.h"/>
+          <FILE id="Tuz0ig" name="InputPanel.cpp" compile="1" resource="0" file="Source/InputPanel.cpp"/>
+          <FILE id="w4uTyU" name="InputPanel.h" compile="0" resource="0" file="Source/InputPanel.h"/>
+        </GROUP>
+        <GROUP id="{502F0B31-56CC-4732-FC06-1D35CD1A133F}" name="TopPanel">
+          <FILE id="SmYCJB" name="LogoPanel.cpp" compile="1" resource="0" file="Source/LogoPanel.cpp"/>
+          <FILE id="PCRg4E" name="LogoPanel.h" compile="0" resource="0" file="Source/LogoPanel.h"/>
+          <FILE id="DybRsn" name="TopPanel.cpp" compile="1" resource="0" file="Source/TopPanel.cpp"/>
+          <FILE id="d36G6w" name="TopPanel.h" compile="0" resource="0" file="Source/TopPanel.h"/>
+          <FILE id="Q6mW2F" name="PresetPanel.cpp" compile="1" resource="0" file="Source/PresetPanel.cpp"/>
+          <FILE id="YJaBnj" name="PresetPanel.h" compile="0" resource="0" file="Source/PresetPanel.h"/>
+        </GROUP>
+        <FILE id="kRvAqx" name="JackelUnlockForm.cpp" compile="1" resource="0"
+              file="Source/JackelUnlockForm.cpp"/>
+        <FILE id="IE9c5A" name="JackelUnlockForm.h" compile="0" resource="0"
+              file="Source/JackelUnlockForm.h"/>
+        <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
+              file="Source/JackelLookAndFeel.h"/>
+        <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
+              file="Source/InterfaceDefines.h"/>
+        <FILE id="GhlPP7" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
+        <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
+        <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
+        <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+      </GROUP>
       <FILE id="q4kofV" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="O0D0XJ" name="PluginProcessor.h" compile="0" resource="0"

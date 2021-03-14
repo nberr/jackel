@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    DeviceSelectorPanel.h
-    Created: 18 Nov 2019 7:35:31pm
+    SidePanel.h
+    Created: 9 Mar 2021 9:28:01pm
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,12 +12,16 @@
 
 #include "PanelBase.h"
 
-class DeviceSelectorPanel
+#include "TranslationPanel.h"
+
+class PopoutPanel
 :   public PanelBase
 {
 public:
-    DeviceSelectorPanel(JackelAudioProcessor* inProcessor);
-    ~DeviceSelectorPanel();
+    PopoutPanel(JackelAudioProcessor* inProcessor);
+    ~PopoutPanel();
+    
+    std::unique_ptr<TranslationPanel> mTranslationPanel;
     
 private:
     

@@ -19,8 +19,7 @@ MidiController::MidiController(JackelAudioProcessor* inProcessor)
     
     mKeyboardComponent = std::make_unique<MidiKeyboardComponent>(mKeyboardState, MidiKeyboardComponent::horizontalKeyboard);
     
-    mKeyboardComponent->setSize(MIDI_KB_WIDTH, MIDI_KB_HEIGHT);
-    mKeyboardComponent->setTopLeftPosition(LARGE_BUFFER, LARGE_BUFFER + OCTAVE_HEIGHT);
+    mKeyboardComponent->setSize(KEYBOARD_WIDTH, KEYBOARD_HEIGHT);
     
     mKeyboardState.addListener(this);
     

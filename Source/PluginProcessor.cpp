@@ -193,6 +193,11 @@ void JackelAudioProcessor::setStateInformation (const void* data, int sizeInByte
             parameters.replaceState (ValueTree::fromXml (*xmlState));
 }
 
+JackelPresetManager*  JackelAudioProcessor::getPresetManager()
+{
+    return (JackelPresetManager *)&*mPresetManager;
+}
+
 AudioProcessorValueTreeState::ParameterLayout JackelAudioProcessor::createParameterLayout()
 {
     std::vector<std::unique_ptr<AudioParameterInt>> params;

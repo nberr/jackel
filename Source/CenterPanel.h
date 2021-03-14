@@ -12,7 +12,12 @@
 
 #include "PanelBase.h"
 
+#include "DeviceSelectorPanel.h"
 #include "TonalCenterPanel.h"
+#include "InputPanel.h"
+#include "OutputPanel.h"
+#include "OctavePanel.h"
+
 #include "TranslationPanel.h"
 
 class CenterPanel
@@ -22,11 +27,14 @@ public:
     CenterPanel(JackelAudioProcessor* inProcessor);
     ~CenterPanel();
     
-    void paint(Graphics& g) override;
-    
 private:
+    
+    std::unique_ptr<DeviceSelectorPanel> mDeviceSelectorPanel;
     std::unique_ptr<TonalCenterPanel> mTCPanel;
+    std::unique_ptr<InputPanel> mInputPanel;
+    std::unique_ptr<OutputPanel> mOutputPanel;
+    std::unique_ptr<OctavePanel> mOctavePanel;
+    
     std::unique_ptr<TranslationPanel> mTranslationPanel;
     
-    std::unique_ptr<GroupComponent> mTranslationGroup;
 };

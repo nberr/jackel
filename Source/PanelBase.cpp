@@ -25,5 +25,5 @@ void PanelBase::paint(Graphics& g) {
     g.fillAll();
     
     g.setColour(JackelColour_Darker);
-    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
+    g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 1);
 }

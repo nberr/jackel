@@ -13,20 +13,19 @@
 MainPanel::MainPanel(JackelAudioProcessor* inProcessor)
 :   PanelBase(inProcessor)
 {
-    setSize(MAIN_PANEL_WIDTH + TRANSLATION_WIDTH, MAIN_PANEL_HEIGHT);
+    setSize(MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
     
     mMidiController = std::make_unique<MidiController>(inProcessor);
     
     mTopPanel = std::make_unique<TopPanel>(inProcessor, mMidiController->getComboBox());
-    mTopPanel->setTopLeftPosition(0, 0);
     addAndMakeVisible(*mTopPanel);
     
     mCenterPanel = std::make_unique<CenterPanel>(inProcessor);
-    mCenterPanel->setTopLeftPosition(0, 90);
+    mCenterPanel->setTopLeftPosition(0, TOP_PANEL_HEIGHT);
     addAndMakeVisible(*mCenterPanel);
     
     mBottomPanel = std::make_unique<BottomPanel>(inProcessor, mMidiController->getKeyboardComponent());
-    mBottomPanel->setTopLeftPosition(0, 300);
+    mBottomPanel->setTopLeftPosition(0, TOP_PANEL_HEIGHT + CENTER_PANEL_HEIGHT);
     addAndMakeVisible(*mBottomPanel);
 }
 

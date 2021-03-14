@@ -10,10 +10,11 @@
 
 #pragma once
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include <JuceHeader.h>
 #include "PluginProcessor.h"
 
 #include "MainPanel.h"
+#include "PopoutPanel.h"
 #include "JackelLookAndFeel.h"
 
 //==============================================================================
@@ -35,10 +36,11 @@ private:
     JackelAudioProcessor& processor;
     
     std::unique_ptr<MainPanel> mMainPanel;
-    std::unique_ptr<JackelLookAndFeel> mLookAndFeel;
+    std::unique_ptr<PopoutPanel> mPopoutPanel;
+    std::unique_ptr<juce::TextButton> mPopoutButton; // TODO: maybe change this to a shape later
+    bool mPopoutShow = true;
     
-    std::unique_ptr<juce::TextButton> mTranslationPanelButton;
-    bool translationShown = true;
+    std::unique_ptr<JackelLookAndFeel> mLookAndFeel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessorEditor)
 };

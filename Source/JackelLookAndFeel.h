@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include "JuceHeader.h"
+#include <JuceHeader.h>
 
 // tonal center display
 const Colour JackelColour_HighlightBg = Colour(235,  94,  40); // vivid vermillion

@@ -9,3 +9,14 @@
 */
 
 #include "DeviceSelectorPanel.h"
+
+DeviceSelectorPanel::DeviceSelectorPanel(JackelAudioProcessor* inProcessor)
+:   PanelBase(inProcessor)
+{
+    setSize(DEVICE_SELECT_WIDTH, DEVICE_SELECT_HEIGHT);
+}
+
+DeviceSelectorPanel::~DeviceSelectorPanel()
+{
+    
+}

@@ -12,6 +12,9 @@
 
 #include "PanelBase.h"
 
+#include "LogoPanel.h"
+#include "PresetPanel.h"
+
 class TopPanel
 :   public PanelBase
 {
@@ -19,11 +22,12 @@ public:
     TopPanel(JackelAudioProcessor* inProcessor, ComboBox* inMidiInputDevs);
     ~TopPanel();
     
-    void paint(Graphics& g) override;
-    
 private:
     ComboBox* mMidiInputDevs;
     Label mMidiInputLabel;
+    
+    std::unique_ptr<LogoPanel> mLogoPanel;
+    std::unique_ptr<PresetPanel> mPresetPanel;
     
     // TODO: add logo here
 };

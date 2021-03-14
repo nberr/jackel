@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    DeviceSelectorPanel.h
-    Created: 18 Nov 2019 7:35:31pm
+    OutputPanel.h
+    Created: 9 Mar 2021 9:55:35pm
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,12 +12,12 @@
 
 #include "PanelBase.h"
 
-class DeviceSelectorPanel
+class OutputPanel
 :   public PanelBase
 {
 public:
-    DeviceSelectorPanel(JackelAudioProcessor* inProcessor);
-    ~DeviceSelectorPanel();
+    OutputPanel(JackelAudioProcessor* inProcessor);
+    ~OutputPanel();
     
 private:
     

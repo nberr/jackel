@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    DeviceSelectorPanel.h
-    Created: 18 Nov 2019 7:35:31pm
+    LogoPanel.h
+    Created: 14 Mar 2021 12:28:09am
     Author:  Nicholas Berriochoa
 
   ==============================================================================
@@ -12,13 +12,14 @@
 
 #include "PanelBase.h"
 
-class DeviceSelectorPanel
+class LogoPanel
 :   public PanelBase
 {
 public:
-    DeviceSelectorPanel(JackelAudioProcessor* inProcessor);
-    ~DeviceSelectorPanel();
+    LogoPanel(JackelAudioProcessor* inProcessor);
+    ~LogoPanel();
     
 private:
     
+    // TODO: add logo here
 };
