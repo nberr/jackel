@@ -23,9 +23,6 @@ enum JackelParameters
 #define MAX_NUM_OCTAVES 8
 
 static const String TonalCenterLables[NUM_TONAL_CENTERS] = {
-    "C",
-    "C#/Db",
-    "D",
     "Eb",
     "E",
     "F",
@@ -34,7 +31,25 @@ static const String TonalCenterLables[NUM_TONAL_CENTERS] = {
     "Ab",
     "A",
     "Bb",
-    "B/Cb"
+    "B/Cb",
+    "C",
+    "C#/Db",
+    "D"
+};
+
+static const String TonalCenterCircle[NUM_TONAL_CENTERS] = {
+    "A",
+    "E",
+    "B/Cb",
+    "F#/Gb",
+    "C#/Db",
+    "Ab",
+    "Eb",
+    "Bb",
+    "F",
+    "C",
+    "G",
+    "D"
 };
 
 static const String JPID[JP_TotalNumParams] =

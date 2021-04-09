@@ -40,5 +40,4 @@ private:
     
     float* mTonalCenterParameter;
     TranslationPanel* mTranslationPanel;
-    
 };

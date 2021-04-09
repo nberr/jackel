@@ -54,6 +54,8 @@ TonalCenterPanel::TonalCenterPanel(JackelAudioProcessor* inProcessor, Translatio
     }
     
     mTCButtons[(int)*mTonalCenterParameter].setToggleState(true, dontSendNotification);
+    
+    
 }
 
 TonalCenterPanel::~TonalCenterPanel()
@@ -69,6 +71,25 @@ void TonalCenterPanel::paint(Graphics& g)
     
     //g.setColour(JackelColour_Darker);
     //g.drawRoundedRectangle(0, 0, getWidth(), getHeight(), 4, 8);
+    
+    int width = 185, height = width;
+    g.setColour(juce::Colours::black);
+    //g.drawEllipse((TONAL_CENTER_WIDTH / 2) - (width / 2), (TONAL_CENTER_HEIGHT / 2) - (height / 2), width, height, 1);
+    
+    double angle = 0;
+    double inc = 30;
+    double radius = (width-10) / 2.;
+    double label_width = 40, label_height = 10;
+    double center_x = (TONAL_CENTER_WIDTH / 2) - (label_width / 2), center_y = (TONAL_CENTER_HEIGHT / 2) - (label_height / 2);
+    for (int i = 0; i < NUM_TONAL_CENTERS; i++) {
+        double x = cos(angle * M_PI / 180.) * radius;
+        double y = sin(angle * M_PI / 180.) * radius;
+        
+        g.drawText(TonalCenterLables[i], center_x + x, center_y + y, label_width, label_height, Justification::centred);
+        
+        angle += inc;
+        
+    }
 }
 
 void TonalCenterPanel::updateToggleState (Button* button, String name)

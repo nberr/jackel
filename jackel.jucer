@@ -46,9 +46,6 @@
           <FILE id="TsnOzG" name="PopoutPanel.h" compile="0" resource="0" file="Source/PopoutPanel.h"/>
         </GROUP>
         <GROUP id="{A879002C-6F62-4D42-9314-DA4D3861678E}" name="BottomPanel">
-          <FILE id="eKQYGv" name="KeyboardPanel.cpp" compile="1" resource="0"
-                file="Source/KeyboardPanel.cpp"/>
-          <FILE id="ibRmni" name="KeyboardPanel.h" compile="0" resource="0" file="Source/KeyboardPanel.h"/>
           <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
           <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
         </GROUP>
