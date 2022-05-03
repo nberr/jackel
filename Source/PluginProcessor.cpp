@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
+    This file contains the basic framework code for a JUCE plugin processor.
 
   ==============================================================================
 */
@@ -11,31 +9,32 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
-#include "JackelParameters.h"
-
 //==============================================================================
 JackelAudioProcessor::JackelAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
+                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
                       #endif
-                       .withOutput ("Output", AudioChannelSet::stereo(), true)
+                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
                        ),
 #endif
-    parameters(*this, nullptr, "PARAMETERS", createParameterLayout())
+parameters(*this, &undoManager, "PARAMETERS", createParameterLayout()),
+inputMidiKeyboard(inputKeyboardState, juce::MidiKeyboardComponent::horizontalKeyboard),
+outputMidiKeyboard(outputKeyboardState, juce::MidiKeyboardComponent::horizontalKeyboard)
 {
-    mMidiProcessor = std::make_unique<MidiProcessor>();
+    
 }
 
 JackelAudioProcessor::~JackelAudioProcessor()
 {
+    
 }
 
 //==============================================================================
-const String JackelAudioProcessor::getName() const
+const juce::String JackelAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
@@ -87,12 +86,12 @@ void JackelAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const String JackelAudioProcessor::getProgramName (int index)
+const juce::String JackelAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void JackelAudioProcessor::changeProgramName (int index, const String& newName)
+void JackelAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
@@ -113,13 +112,15 @@ void JackelAudioProcessor::releaseResources()
 bool JackelAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
-    ignoreUnused (layouts);
+    juce::ignoreUnused (layouts);
     return true;
   #else
     // This is the place where you check if the layout is supported.
     // In this template code we only support mono or stereo.
-    if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono()
-     && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
+    // Some plugin hosts, such as certain GarageBand versions, will only
+    // load plugins that support stereo bus layouts.
+    if (layouts.getMainOutputChannelSet() != juce::AudioChannelSet::mono()
+     && layouts.getMainOutputChannelSet() != juce::AudioChannelSet::stereo())
         return false;
 
     // This checks if the input layout matches the output layout
@@ -133,31 +134,15 @@ bool JackelAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) c
 }
 #endif
 
-void JackelAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
+void JackelAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
-    ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels();
-    auto totalNumOutputChannels = getTotalNumOutputChannels();
-
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
-    std::unique_ptr<MidiBuffer> processedMidi = std::make_unique<MidiBuffer>();
-    int time;
-    MidiMessage m;
-    for (const MidiMessageMetadata metadata : midiMessages)
-    {
-        time = metadata.getMessage().getTimeStamp();
-        mMidiProcessor->process(metadata.getMessage(), time, &*processedMidi, (int)*parameters.getRawParameterValue("TonalCenter"),
-                                                          (int)*parameters.getRawParameterValue("Octave"));
-    }
-    midiMessages.swapWith(*processedMidi);
+    MidiProcessorParameters midi_proc_params = {
+        parameters.getParameterAsValue("TonalCenterID").getValue(),
+        parameters.getParameterAsValue("OctaveID").getValue(),
+    };
+    
+    midiProcessor.setParameters(midi_proc_params);
+    midiProcessor.processBlock(midiMessages, buffer.getNumSamples());
 }
 
 //==============================================================================
@@ -166,78 +151,39 @@ bool JackelAudioProcessor::hasEditor() const
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor* JackelAudioProcessor::createEditor()
+juce::AudioProcessorEditor* JackelAudioProcessor::createEditor()
 {
     return new JackelAudioProcessorEditor (*this);
 }
 
 //==============================================================================
-void JackelAudioProcessor::getStateInformation (MemoryBlock& destData)
+void JackelAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
-    auto state = parameters.copyState();
-    std::unique_ptr<XmlElement> xml (state.createXml());
-    copyXmlToBinary (*xml, destData);
 }
 
 void JackelAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
-    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
-    
-    if (xmlState.get() != nullptr)
-        if (xmlState->hasTagName (parameters.state.getType()))
-            parameters.replaceState (ValueTree::fromXml (*xmlState));
 }
 
-JackelPresetManager*  JackelAudioProcessor::getPresetManager()
+//==============================================================================
+juce::AudioProcessorValueTreeState::ParameterLayout JackelAudioProcessor::createParameterLayout()
 {
-    return (JackelPresetManager *)&*mPresetManager;
-}
-
-AudioProcessorValueTreeState::ParameterLayout JackelAudioProcessor::createParameterLayout()
-{
-    std::vector<std::unique_ptr<AudioParameterInt>> params;
+    juce::AudioProcessorValueTreeState::ParameterLayout layout;
     
+    layout.add(std::make_unique<juce::AudioParameterInt>("TonalCenterID", "Tonal Center", 0, 12, 1, ""));
+    layout.add(std::make_unique<juce::AudioParameterInt>("OctaveID", "Octave", 0, 10, 3, ""));
     
-    // init the tonal center parameter
-    // TODO: add in mode parameter later
-    params.push_back (std::make_unique<AudioParameterInt>(JPID[0],
-                                                          JPID[0],
-                                                          0,
-                                                          NUM_TONAL_CENTERS,
-                                                          JPDefaultValue[0],
-                                                          JPLabel[0]));
-    
-    params.push_back (std::make_unique<AudioParameterInt>(JPID[1],
-                                                          JPID[1],
-                                                          -2,
-                                                          MAX_NUM_OCTAVES,
-                                                          JPDefaultValue[1],
-                                                          JPLabel[1]));
-    
-    // add this loop back when you have more params to initialize
-    /*
-    for (int i = 0; i < JP_TotalNumParams; i++)
-    {
-        params.push_back (std::make_unique<AudioParameterInt>(JPID[i],
-                                                              JPID[i],
-                                                              0,
-                                                              12,
-                                                              JPDefaultValue[i],
-                                                              JPLabel[i]));
-    }
-    */
-    
-    return { params.begin(), params.end() };
+    return layout;
 }
 
 //==============================================================================
 // This creates new instances of the plugin..
-AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new JackelAudioProcessor();
 }

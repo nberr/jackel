@@ -38,25 +38,25 @@
  #define JucePlugin_Enable_IAA             0
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "jackel"
+ #define JucePlugin_Name                   "Jackel"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "negative harmony midi generator"
+ #define JucePlugin_Desc                   "Negative harmony generator"
 #endif
 #ifndef  JucePlugin_Manufacturer
- #define JucePlugin_Manufacturer           "nberr"
+ #define JucePlugin_Manufacturer           "id404co"
 #endif
 #ifndef  JucePlugin_ManufacturerWebsite
- #define JucePlugin_ManufacturerWebsite    "nberr.io"
+ #define JucePlugin_ManufacturerWebsite    "id404.co"
 #endif
 #ifndef  JucePlugin_ManufacturerEmail
- #define JucePlugin_ManufacturerEmail      ""
+ #define JucePlugin_ManufacturerEmail      "contact@id404.co"
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       0x4d616e75
+ #define JucePlugin_ManufacturerCode       0x49646e66
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x44727062
+ #define JucePlugin_PluginCode             0x4a636b6c
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -98,16 +98,16 @@
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AUExportPrefix
- #define JucePlugin_AUExportPrefix         jackelAU
+ #define JucePlugin_AUExportPrefix         JackelAU
 #endif
 #ifndef  JucePlugin_AUExportPrefixQuoted
- #define JucePlugin_AUExportPrefixQuoted   "jackelAU"
+ #define JucePlugin_AUExportPrefixQuoted   "JackelAU"
 #endif
 #ifndef  JucePlugin_AUManufacturerCode
  #define JucePlugin_AUManufacturerCode     JucePlugin_ManufacturerCode
 #endif
 #ifndef  JucePlugin_CFBundleIdentifier
- #define JucePlugin_CFBundleIdentifier     io.nberr.jackel
+ #define JucePlugin_CFBundleIdentifier     co.id404.jackel
 #endif
 #ifndef  JucePlugin_RTASCategory
  #define JucePlugin_RTASCategory           0
@@ -125,7 +125,7 @@
  #define JucePlugin_RTASDisableMultiMono   0
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          com.nberr.jackel
+ #define JucePlugin_AAXIdentifier          co.id404.jackel
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode
@@ -149,7 +149,7 @@
  #define JucePlugin_IAASubType             JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_IAAName
- #define JucePlugin_IAAName                "nberr: jackel"
+ #define JucePlugin_IAAName                "id404co: Jackel"
 #endif
 #ifndef  JucePlugin_VSTNumMidiInputs
  #define JucePlugin_VSTNumMidiInputs       16

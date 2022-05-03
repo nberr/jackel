@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
+    This file contains the basic framework code for a JUCE plugin editor.
 
   ==============================================================================
 */
@@ -11,36 +9,43 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "PluginProcessor.h"
 
+#include "PluginProcessor.h"
+#include "MenuPanel.h"
+#include "PresetPanel.h"
 #include "MainPanel.h"
-#include "PopoutPanel.h"
-#include "JackelLookAndFeel.h"
+#include "SidePanel.h"
+
+class PanelBase;
 
 //==============================================================================
-/**
-*/
-class JackelAudioProcessorEditor  : public AudioProcessorEditor
+class JackelAudioProcessorEditor
+:   public juce::AudioProcessorEditor
 {
 public:
     JackelAudioProcessorEditor (JackelAudioProcessor&);
-    ~JackelAudioProcessorEditor();
+    ~JackelAudioProcessorEditor() override;
 
     //==============================================================================
-    void paint (Graphics&) override;
+    void paint (juce::Graphics&) override;
     void resized() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
-    JackelAudioProcessor& processor;
+    //==============================================================================
+    JackelAudioProcessor& audioProcessor;
     
-    std::unique_ptr<MainPanel> mMainPanel;
-    std::unique_ptr<PopoutPanel> mPopoutPanel;
-    std::unique_ptr<juce::TextButton> mPopoutButton; // TODO: maybe change this to a shape later
-    bool mPopoutShow = true;
+    //==============================================================================
+    MenuPanel menuPanel;
+    PresetPanel presetPanel;
+    MainPanel mainPanel;
+    SidePanel sidePanel;
     
-    std::unique_ptr<JackelLookAndFeel> mLookAndFeel;
-
+    std::vector<PanelBase *> panels = {
+        &menuPanel,
+        &presetPanel,
+        &mainPanel,
+        &sidePanel
+    };
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessorEditor)
 };

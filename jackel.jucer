@@ -1,123 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="drPbgD" name="jackel" projectType="audioplug" pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
-              companyName="nberr" companyWebsite="nberr.io" bundleIdentifier="io.nberr.jackel"
-              pluginManufacturer="nberr" pluginName="jackel" pluginDesc="negative harmony midi generator"
-              displaySplashScreen="1" jucerFormatVersion="1">
-  <MAINGROUP id="cmmOOt" name="jackel">
-    <GROUP id="{86BDA4BF-1DD3-1187-D4D7-FED01ACE11E9}" name="Source">
-      <GROUP id="{6083A5A6-CF7F-5B60-B528-EDEAB639EA2F}" name="Registration">
-        <FILE id="jKo05g" name="MarketPlaceStatus.cpp" compile="1" resource="0"
-              file="Source/MarketPlaceStatus.cpp"/>
-        <FILE id="k0HoRf" name="MarketPlaceStatus.h" compile="0" resource="0"
-              file="Source/MarketPlaceStatus.h"/>
-      </GROUP>
-      <GROUP id="{3211FADB-8340-A898-AED5-F8F7F00EEDD1}" name="State">
-        <FILE id="LPyzNd" name="JackelPresetManager.cpp" compile="1" resource="0"
-              file="Source/JackelPresetManager.cpp"/>
-        <FILE id="dwNgvs" name="JackelPresetManager.h" compile="0" resource="0"
-              file="Source/JackelPresetManager.h"/>
-      </GROUP>
-      <GROUP id="{117A3866-1360-2D8A-F6E1-9A8288B47D7D}" name="FX">
-        <FILE id="QzeqSt" name="MidiFunctions.h" compile="0" resource="0" file="Source/MidiFunctions.h"/>
-        <FILE id="MJ6nEe" name="MidiController.cpp" compile="1" resource="0"
-              file="Source/MidiController.cpp"/>
-        <FILE id="KaKOcM" name="MidiController.h" compile="0" resource="0"
-              file="Source/MidiController.h"/>
-        <FILE id="vATsoa" name="MidiProcessor.cpp" compile="1" resource="0"
-              file="Source/MidiProcessor.cpp"/>
-        <FILE id="wMzxQP" name="MidiProcessor.h" compile="0" resource="0" file="Source/MidiProcessor.h"/>
-      </GROUP>
-      <GROUP id="{50240CE8-9424-5DBD-9633-D259A208EFBA}" name="Parameters">
-        <FILE id="otYIEf" name="JackelParameters.h" compile="0" resource="0"
-              file="Source/JackelParameters.h"/>
-        <FILE id="tmXFXm" name="JackelParameterSpinner.cpp" compile="1" resource="0"
-              file="Source/JackelParameterSpinner.cpp"/>
-        <FILE id="LKTgNk" name="JackelParameterSpinner.h" compile="0" resource="0"
-              file="Source/JackelParameterSpinner.h"/>
-      </GROUP>
-      <GROUP id="{38CC0097-549A-EDAF-C334-E11C80907177}" name="UI">
-        <GROUP id="{738C6889-7F59-63D7-FB73-3A8326EADE76}" name="PopoutPanel">
-          <FILE id="iSqfDi" name="TranslationPanel.cpp" compile="1" resource="0"
-                file="Source/TranslationPanel.cpp"/>
-          <FILE id="EYcd6O" name="TranslationPanel.h" compile="0" resource="0"
-                file="Source/TranslationPanel.h"/>
-          <FILE id="Xo1ihw" name="PopoutPanel.cpp" compile="1" resource="0" file="Source/PopoutPanel.cpp"/>
-          <FILE id="TsnOzG" name="PopoutPanel.h" compile="0" resource="0" file="Source/PopoutPanel.h"/>
+<JUCERPROJECT id="RxtznF" name="Jackel" projectType="audioplug" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
+              version="1.0.0" companyName="id404co" companyCopyright="id404co "
+              companyWebsite="id404.co" companyEmail="contact@id404.co" bundleIdentifier="co.id404.jackel"
+              pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
+              pluginName="Jackel" pluginDesc="Negative harmony generator" pluginManufacturer="id404co"
+              pluginManufacturerCode="Idnf" pluginCode="Jckl" aaxIdentifier="co.id404.jackel"
+              pluginAUExportPrefix="JackelAU" cppLanguageStandard="latest"
+              headerPath="../../Source&#10;../../Source/Controllers/TonalCenter&#10;../../Source/DSP&#10;../../Source/UI&#10;../../Source/UI/Base&#10;../../Source/UI/Panels/Main&#10;../../Source/UI/Panels/Menu&#10;../../Source/UI/Panels/Preset&#10;../../Source/UI/Panels/Side&#10;">
+  <MAINGROUP id="EjTE9R" name="Jackel">
+    <GROUP id="{65C6FF83-B8A3-2250-316E-D8A3420AEA64}" name="Source">
+      <GROUP id="{EF8E2206-F95D-020E-131B-FD4B27C8DEDE}" name="UI">
+        <GROUP id="{04BBFF0B-2E97-8DEE-DE8D-59523CD25E56}" name="Base">
+          <FILE id="Qq4fRl" name="PanelBase.cpp" compile="1" resource="0" file="Source/UI/Base/PanelBase.cpp"/>
+          <FILE id="YrhkpT" name="PanelBase.h" compile="0" resource="0" file="Source/UI/Base/PanelBase.h"/>
         </GROUP>
-        <GROUP id="{A879002C-6F62-4D42-9314-DA4D3861678E}" name="BottomPanel">
-          <FILE id="oleBN0" name="BottomPanel.cpp" compile="1" resource="0" file="Source/BottomPanel.cpp"/>
-          <FILE id="qC0Wer" name="BottomPanel.h" compile="0" resource="0" file="Source/BottomPanel.h"/>
+        <GROUP id="{FE35C0CD-72BC-FAC3-D331-AAA19B0B111A}" name="Panels">
+          <GROUP id="{A0FDF48F-A458-86F5-4B4C-8480E972660A}" name="Main">
+            <FILE id="ttO0h4" name="MainPanel.cpp" compile="1" resource="0" file="Source/UI/Panels/Main/MainPanel.cpp"/>
+            <FILE id="P4mSJU" name="MainPanel.h" compile="0" resource="0" file="Source/UI/Panels/Main/MainPanel.h"/>
+          </GROUP>
+          <GROUP id="{534D3234-0921-CD8A-057E-5217B7194ECC}" name="Menu">
+            <FILE id="YE42tR" name="MenuPanel.cpp" compile="1" resource="0" file="Source/UI/Panels/Menu/MenuPanel.cpp"/>
+            <FILE id="n3LBSw" name="MenuPanel.h" compile="0" resource="0" file="Source/UI/Panels/Menu/MenuPanel.h"/>
+          </GROUP>
+          <GROUP id="{D8846AFD-B3D6-14D0-9C0A-F34DB3E7A7B5}" name="Preset">
+            <FILE id="sOBbPL" name="PresetPanel.cpp" compile="1" resource="0" file="Source/UI/Panels/Preset/PresetPanel.cpp"/>
+            <FILE id="L68WPd" name="PresetPanel.h" compile="0" resource="0" file="Source/UI/Panels/Preset/PresetPanel.h"/>
+          </GROUP>
+          <GROUP id="{29573D71-D753-8AC4-5740-23EB8BD71829}" name="Side">
+            <FILE id="c632aJ" name="SidePanel.cpp" compile="1" resource="0" file="Source/UI/Panels/Side/SidePanel.cpp"/>
+            <FILE id="PNnSVD" name="SidePanel.h" compile="0" resource="0" file="Source/UI/Panels/Side/SidePanel.h"/>
+          </GROUP>
         </GROUP>
-        <GROUP id="{8B731859-9998-8A98-04B0-FF69215AE968}" name="CenterPanel">
-          <FILE id="aWj2iZ" name="DeviceSelectorPanel.cpp" compile="1" resource="0"
-                file="Source/DeviceSelectorPanel.cpp"/>
-          <FILE id="naaadf" name="DeviceSelectorPanel.h" compile="0" resource="0"
-                file="Source/DeviceSelectorPanel.h"/>
-          <FILE id="VQl3Pi" name="TonalCenterPanel.cpp" compile="1" resource="0"
-                file="Source/TonalCenterPanel.cpp"/>
-          <FILE id="SiZGcN" name="TonalCenterPanel.h" compile="0" resource="0"
-                file="Source/TonalCenterPanel.h"/>
-          <FILE id="OVIyPl" name="OctavePanel.cpp" compile="1" resource="0" file="Source/OctavePanel.cpp"/>
-          <FILE id="hCR80J" name="OctavePanel.h" compile="0" resource="0" file="Source/OctavePanel.h"/>
-          <FILE id="oqt2tn" name="CenterPanel.cpp" compile="1" resource="0" file="Source/CenterPanel.cpp"/>
-          <FILE id="PN3G7l" name="CenterPanel.h" compile="0" resource="0" file="Source/CenterPanel.h"/>
-          <FILE id="yaY8bj" name="OutputPanel.cpp" compile="1" resource="0" file="Source/OutputPanel.cpp"/>
-          <FILE id="ZRF7E1" name="OutputPanel.h" compile="0" resource="0" file="Source/OutputPanel.h"/>
-          <FILE id="Tuz0ig" name="InputPanel.cpp" compile="1" resource="0" file="Source/InputPanel.cpp"/>
-          <FILE id="w4uTyU" name="InputPanel.h" compile="0" resource="0" file="Source/InputPanel.h"/>
-        </GROUP>
-        <GROUP id="{502F0B31-56CC-4732-FC06-1D35CD1A133F}" name="TopPanel">
-          <FILE id="SmYCJB" name="LogoPanel.cpp" compile="1" resource="0" file="Source/LogoPanel.cpp"/>
-          <FILE id="PCRg4E" name="LogoPanel.h" compile="0" resource="0" file="Source/LogoPanel.h"/>
-          <FILE id="DybRsn" name="TopPanel.cpp" compile="1" resource="0" file="Source/TopPanel.cpp"/>
-          <FILE id="d36G6w" name="TopPanel.h" compile="0" resource="0" file="Source/TopPanel.h"/>
-          <FILE id="Q6mW2F" name="PresetPanel.cpp" compile="1" resource="0" file="Source/PresetPanel.cpp"/>
-          <FILE id="YJaBnj" name="PresetPanel.h" compile="0" resource="0" file="Source/PresetPanel.h"/>
-        </GROUP>
-        <FILE id="kRvAqx" name="JackelUnlockForm.cpp" compile="1" resource="0"
-              file="Source/JackelUnlockForm.cpp"/>
-        <FILE id="IE9c5A" name="JackelUnlockForm.h" compile="0" resource="0"
-              file="Source/JackelUnlockForm.h"/>
-        <FILE id="YTGdzv" name="JackelLookAndFeel.h" compile="0" resource="0"
-              file="Source/JackelLookAndFeel.h"/>
-        <FILE id="nVfebY" name="InterfaceDefines.h" compile="0" resource="0"
-              file="Source/InterfaceDefines.h"/>
-        <FILE id="GhlPP7" name="MainPanel.cpp" compile="1" resource="0" file="Source/MainPanel.cpp"/>
-        <FILE id="lKJBPG" name="MainPanel.h" compile="0" resource="0" file="Source/MainPanel.h"/>
-        <FILE id="NzmqFW" name="PanelBase.cpp" compile="1" resource="0" file="Source/PanelBase.cpp"/>
-        <FILE id="dEdasC" name="PanelBase.h" compile="0" resource="0" file="Source/PanelBase.h"/>
+        <FILE id="RDccn4" name="InterfaceDefines.h" compile="0" resource="0"
+              file="Source/UI/InterfaceDefines.h"/>
       </GROUP>
-      <FILE id="q4kofV" name="PluginProcessor.cpp" compile="1" resource="0"
+      <GROUP id="{CF9D719C-942B-8BDB-38E5-956B8A07DB94}" name="Controllers">
+        <GROUP id="{DBCFAD75-5340-63EC-EE33-9EA7C97C2AF6}" name="TonalCenter">
+          <FILE id="hlH6gD" name="TonalCenterComponent.cpp" compile="1" resource="0"
+                file="Source/Controllers/TonalCenter/TonalCenterComponent.cpp"/>
+          <FILE id="h4xCn8" name="TonalCenterComponent.h" compile="0" resource="0"
+                file="Source/Controllers/TonalCenter/TonalCenterComponent.h"/>
+        </GROUP>
+      </GROUP>
+      <GROUP id="{504329F6-BFF4-840B-D227-D3EEC97C8309}" name="DSP">
+        <FILE id="O82N02" name="MidiProcessor.cpp" compile="1" resource="0"
+              file="Source/DSP/MidiProcessor.cpp"/>
+        <FILE id="V4mCI9" name="MidiProcessor.h" compile="0" resource="0" file="Source/DSP/MidiProcessor.h"/>
+      </GROUP>
+      <FILE id="yRPXFv" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
-      <FILE id="O0D0XJ" name="PluginProcessor.h" compile="0" resource="0"
+      <FILE id="yLZOD4" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="Mpvq8O" name="PluginEditor.cpp" compile="1" resource="0"
+      <FILE id="JU3LLT" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
-      <FILE id="CSczrB" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="sCpfui" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
   </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug"/>
-        <CONFIGURATION isDebug="0" name="Release"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="Jackel"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="Jackel"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_audio_basics" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_cryptography" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../Applications/JUCE/modules"/>
-        <MODULEPATH id="juce_opengl" path="../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Developer/lib/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../Developer/lib/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
@@ -130,16 +91,10 @@
     <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
-    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
-  <LIVE_SETTINGS>
-    <OSX/>
-  </LIVE_SETTINGS>
-  <JUCEOPTIONS JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
 </JUCERPROJECT>

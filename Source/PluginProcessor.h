@@ -1,9 +1,7 @@
 /*
   ==============================================================================
 
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
+    This file contains the basic framework code for a JUCE plugin processor.
 
   ==============================================================================
 */
@@ -13,17 +11,15 @@
 #include <JuceHeader.h>
 
 #include "MidiProcessor.h"
-#include "JackelPresetManager.h"
 
 //==============================================================================
-/**
-*/
-class JackelAudioProcessor  : public AudioProcessor
+class JackelAudioProcessor
+:   public juce::AudioProcessor
 {
 public:
     //==============================================================================
     JackelAudioProcessor();
-    ~JackelAudioProcessor();
+    ~JackelAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -33,14 +29,14 @@ public:
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
    #endif
 
-    void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
+    void processBlock (juce::AudioBuffer<float>&, juce::MidiBuffer&) override;
 
     //==============================================================================
-    AudioProcessorEditor* createEditor() override;
+    juce::AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
 
     //==============================================================================
-    const String getName() const override;
+    const juce::String getName() const override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
@@ -51,25 +47,33 @@ public:
     int getNumPrograms() override;
     int getCurrentProgram() override;
     void setCurrentProgram (int index) override;
-    const String getProgramName (int index) override;
-    void changeProgramName (int index, const String& newName) override;
+    const juce::String getProgramName (int index) override;
+    void changeProgramName (int index, const juce::String& newName) override;
 
     //==============================================================================
-    void getStateInformation (MemoryBlock& destData) override;
+    void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     
-    JackelPresetManager* getPresetManager();
-    
-    AudioProcessorValueTreeState parameters;
+    //==============================================================================
+    static juce::AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+        
+    juce::AudioProcessorValueTreeState parameters;
 
+    //==============================================================================
+    juce::MidiKeyboardState inputKeyboardState;
+    juce::MidiKeyboardState outputKeyboardState;
+    
+    juce::MidiKeyboardComponent inputMidiKeyboard;
+    juce::MidiKeyboardComponent outputMidiKeyboard;
+    
 private:
     //==============================================================================
-    AudioProcessorValueTreeState::ParameterLayout createParameterLayout();
+    juce::UndoManager undoManager;
+    
+    //==============================================================================
+    MidiProcessor midiProcessor;
     
     
-    std::unique_ptr<MidiProcessor> mMidiProcessor;
-    std::unique_ptr<JackelPresetManager> mPresetManager;
-    
-    
+    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (JackelAudioProcessor)
 };
