@@ -113,7 +113,7 @@
  #define JucePlugin_CFBundleIdentifier     io.nberr.jackel
 #endif
 #ifndef  JucePlugin_AAXIdentifier
- #define JucePlugin_AAXIdentifier          co.id404.jackel
+ #define JucePlugin_AAXIdentifier          io.nberr.jackel
 #endif
 #ifndef  JucePlugin_AAXManufacturerCode
  #define JucePlugin_AAXManufacturerCode    JucePlugin_ManufacturerCode

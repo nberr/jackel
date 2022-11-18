@@ -6,7 +6,7 @@
               companyWebsite="nberr.io" companyEmail="contact@nberr.io" bundleIdentifier="io.nberr.jackel"
               pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
               pluginName="Jackel" pluginDesc="Negative harmony generator" pluginManufacturer="nberr"
-              pluginManufacturerCode="Nbrr" pluginCode="Jckl" aaxIdentifier="co.id404.jackel"
+              pluginManufacturerCode="Nbrr" pluginCode="Jckl" aaxIdentifier="io.nberr.jackel"
               pluginAUExportPrefix="JackelAU" cppLanguageStandard="latest"
               headerPath="../../Source&#10;../../Source/Controllers/TonalCenter&#10;../../Source/DSP&#10;../../Source/UI&#10;../../Source/UI/Base&#10;../../Source/UI/Panels/Main&#10;../../Source/UI/Panels/Menu&#10;../../Source/UI/Panels/Preset&#10;../../Source/UI/Panels/Side&#10;">
   <MAINGROUP id="EjTE9R" name="Jackel">
