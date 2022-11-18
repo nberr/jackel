@@ -2,11 +2,11 @@
 
 <JUCERPROJECT id="RxtznF" name="Jackel" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
-              version="1.0.0" companyName="id404co" companyCopyright="id404co "
-              companyWebsite="id404.co" companyEmail="contact@id404.co" bundleIdentifier="co.id404.jackel"
+              version="1.0.0" companyName="nberr" companyCopyright="nberr "
+              companyWebsite="nberr.io" companyEmail="contact@nberr.io" bundleIdentifier="io.nberr.jackel"
               pluginCharacteristicsValue="pluginIsMidiEffectPlugin,pluginProducesMidiOut,pluginWantsMidiIn"
-              pluginName="Jackel" pluginDesc="Negative harmony generator" pluginManufacturer="id404co"
-              pluginManufacturerCode="Idnf" pluginCode="Jckl" aaxIdentifier="co.id404.jackel"
+              pluginName="Jackel" pluginDesc="Negative harmony generator" pluginManufacturer="nberr"
+              pluginManufacturerCode="Nbrr" pluginCode="Jckl" aaxIdentifier="co.id404.jackel"
               pluginAUExportPrefix="JackelAU" cppLanguageStandard="latest"
               headerPath="../../Source&#10;../../Source/Controllers/TonalCenter&#10;../../Source/DSP&#10;../../Source/UI&#10;../../Source/UI/Base&#10;../../Source/UI/Panels/Main&#10;../../Source/UI/Panels/Menu&#10;../../Source/UI/Panels/Preset&#10;../../Source/UI/Panels/Side&#10;">
   <MAINGROUP id="EjTE9R" name="Jackel">
